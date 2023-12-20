@@ -42,6 +42,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2.0.8
         with:
+          name: web
           path: build/web
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
