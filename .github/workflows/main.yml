@@ -32,6 +32,7 @@ jobs:
           path: build/web
   deploy:
     name: Upload to Itch
+    if: steps.export-web.outcome == 'success'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
