@@ -44,6 +44,9 @@ jobs:
       - uses: actions/download-artifact@v2.0.8
         with:
           name: web
+      - name: check dir
+        run: |
+          ls -l
       - uses: KikimoraGames/itch-publish@v0.0.3
         with:
           butlerApiKey: ${{secrets.BUTLER_API_KEY}}
