@@ -46,11 +46,10 @@ jobs:
           name: web
       - name: Zip artifact for deployment
         run: zip release.zip ./* -r
-      - uses: KikimoraGames/itch-publish@v0.0.3
-        with:
-          butlerApiKey: ${{secrets.BUTLER_API_KEY}}
-          gameData: release.zip
-          itchUsername: ${{env.ITCH_USERNAME}}
-          itchGameId: ${{ env.ITCH_GAME_ID }}
-          buildChannel: win
-          buildNumber: ${{ needs.version.outputs.version_hash }}
+      - uses: manleydev/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
+          CHANNEL: web
+          ITCH_GAME: truthcoin
+          ITCH_USER: jdle
+          PACKAGE: release.zip
