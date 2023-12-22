@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsta37gcdsjxh"]
+
+[ext_resource type="Script" path="res://SmallCookie.gd" id="1_7q15a"]
+[ext_resource type="Texture2D" uid="uid://csoo0prvmwxhy" path="res://assets/sprites/coin2.png" id="2_xr5wv"]
+
+[node name="SmallCookie" type="CharacterBody2D"]
+position = Vector2(464, 272)
+script = ExtResource("1_7q15a")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_xr5wv")
