@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://b0vdtj3q5ak6v"]
+[gd_scene load_steps=2 format=3 uid="uid://b0vdtj3q5ak6v"]
+
+[ext_resource type="PackedScene" uid="uid://d2maewpuf1qa0" path="res://clickable_coin.tscn" id="1_0rjbm"]
 
 [node name="Main" type="Node2D"]
+
+[node name="ClickableCoin" parent="." instance=ExtResource("1_0rjbm")]
