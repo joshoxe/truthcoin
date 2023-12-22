@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d2maewpuf1qa0"]
+
+[node name="ClickableCoin" type="Area2D"]
