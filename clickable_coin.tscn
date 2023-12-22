@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2maewpuf1qa0"]
+[gd_scene load_steps=9 format=3 uid="uid://d2maewpuf1qa0"]
 
 [ext_resource type="Script" path="res://clickable_coin.gd" id="1_n32y5"]
+[ext_resource type="PackedScene" uid="uid://bsta37gcdsjxh" path="res://small_cookie.tscn" id="2_fjsb3"]
 [ext_resource type="Texture2D" uid="uid://3r2hog16ky1g" path="res://assets/sprites/coi_sprite2.png" id="2_vwilp"]
 [ext_resource type="Texture2D" uid="uid://dftrprxx7hisn" path="res://assets/sprites/coi_sprite3.png" id="3_sm7no"]
 [ext_resource type="Texture2D" uid="uid://b8j0chxh6ikqf" path="res://assets/sprites/coi_sprite4.png" id="4_gb6oo"]
@@ -40,6 +41,7 @@ radius = 120.0
 [node name="ClickableCoin" type="Area2D"]
 position = Vector2(912, 512)
 script = ExtResource("1_n32y5")
+small_cookie_scene = ExtResource("2_fjsb3")
 metadata/_edit_group_ = true
 
 [node name="CoinSprite" type="AnimatedSprite2D" parent="."]
