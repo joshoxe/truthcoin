@@ -8,7 +8,6 @@ func _ready():
 	input_event.connect(on_input_event)
 	$CoinSprite.animation_finished.connect(on_coin_sprite_animation_finished)
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
