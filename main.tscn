@@ -1,15 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0vdtj3q5ak6v"]
+[gd_scene load_steps=6 format=3 uid="uid://b0vdtj3q5ak6v"]
 
 [ext_resource type="PackedScene" uid="uid://d2maewpuf1qa0" path="res://clickable_coin.tscn" id="1_0rjbm"]
+[ext_resource type="Texture2D" uid="uid://dc6exchclmk1b" path="res://assets/UI/Rectangle 1.png" id="1_2b4bs"]
 [ext_resource type="Script" path="res://GameManager.gd" id="2_cplhg"]
-[ext_resource type="PackedScene" uid="uid://c1earw5kggatj" path="res://hud.tscn" id="3_700gp"]
+[ext_resource type="PackedScene" uid="uid://bo0jqcn2ub11d" path="res://main_hud.tscn" id="3_8itgo"]
+[ext_resource type="PackedScene" uid="uid://b5j8q7o003bqk" path="res://score_hud.tscn" id="3_vw0tl"]
 
 [node name="Main" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_2b4bs")
+metadata/_edit_lock_ = true
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_cplhg")
 
-[node name="ClickableCoin" parent="." instance=ExtResource("1_0rjbm")]
-position = Vector2(961, 508)
+[node name="ScoreHUD" parent="." instance=ExtResource("3_vw0tl")]
 
-[node name="HUD" parent="." instance=ExtResource("3_700gp")]
+[node name="ClickableCoin" parent="." instance=ExtResource("1_0rjbm")]
+position = Vector2(495, 563)
+
+[node name="MainHUD" parent="." instance=ExtResource("3_8itgo")]

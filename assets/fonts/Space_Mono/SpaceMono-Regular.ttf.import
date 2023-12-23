@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cjmnacgaw365h"
-path="res://.godot/imported/Sora-Light.ttf-7af2ddf0bb863c7668ab62274c582b62.fontdata"
+uid="uid://cdw4tnj32rww4"
+path="res://.godot/imported/SpaceMono-Regular.ttf-730680b5b634c237cb1a8937224f8577.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/static/Sora-Light.ttf"
-dest_files=["res://.godot/imported/Sora-Light.ttf-7af2ddf0bb863c7668ab62274c582b62.fontdata"]
+source_file="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf"
+dest_files=["res://.godot/imported/SpaceMono-Regular.ttf-730680b5b634c237cb1a8937224f8577.fontdata"]
 
 [params]
 
