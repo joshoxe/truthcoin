@@ -17,9 +17,14 @@ metadata/_edit_lock_ = true
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_cplhg")
 
-[node name="ScoreHUD" parent="." instance=ExtResource("3_vw0tl")]
-
-[node name="ClickableCoin" parent="." instance=ExtResource("1_0rjbm")]
-position = Vector2(495, 563)
-
 [node name="MainHUD" parent="." instance=ExtResource("3_8itgo")]
+
+[node name="Container" type="BoxContainer" parent="."]
+offset_right = 1092.0
+offset_bottom = 1079.0
+alignment = 1
+
+[node name="ClickableCoin" parent="Container" instance=ExtResource("1_0rjbm")]
+position = Vector2(512, 512)
+
+[node name="ScoreHUD" parent="Container" instance=ExtResource("3_vw0tl")]

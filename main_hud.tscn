@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bo0jqcn2ub11d"]
+[gd_scene load_steps=7 format=3 uid="uid://bo0jqcn2ub11d"]
 
 [ext_resource type="Texture2D" uid="uid://btfq4a2yk5sdo" path="res://assets/UI/sidebar4.png" id="1_umi2u"]
+[ext_resource type="Script" path="res://main_hud.gd" id="1_yao43"]
 [ext_resource type="Texture2D" uid="uid://de45usxljedhw" path="res://assets/UI/BUTTON2.png" id="2_1haet"]
 [ext_resource type="FontFile" uid="uid://b67554lnuypc0" path="res://assets/fonts/Space_Mono/SpaceMono-Bold.ttf" id="3_5u3qr"]
 [ext_resource type="Texture2D" uid="uid://bx4cscoqjmuii" path="res://assets/UI/button_pressed2.png" id="3_anlva"]
 [ext_resource type="Texture2D" uid="uid://bnb8ur38gste8" path="res://assets/UI/button_hovered.png" id="4_8f84x"]
 
 [node name="MainHUD" type="CanvasLayer"]
+script = ExtResource("1_yao43")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 1091.0
@@ -15,21 +17,21 @@ offset_right = 1943.0
 offset_bottom = 1106.0
 texture = ExtResource("1_umi2u")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ButtonContainer" type="HBoxContainer" parent="."]
 offset_left = 1125.0
 offset_top = 9.0
 offset_right = 1921.0
 offset_bottom = 119.0
 alignment = 1
 
-[node name="ShopButton" type="TextureButton" parent="HBoxContainer"]
+[node name="ShopButton" type="TextureButton" parent="ButtonContainer"]
 layout_mode = 2
 keep_pressed_outside = true
 texture_normal = ExtResource("2_1haet")
 texture_pressed = ExtResource("3_anlva")
 texture_hover = ExtResource("4_8f84x")
 
-[node name="Label" type="Label" parent="HBoxContainer/ShopButton"]
+[node name="Label" type="Label" parent="ButtonContainer/ShopButton"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 6.0
@@ -41,14 +43,14 @@ text = "Shop"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InboxButton" type="TextureButton" parent="HBoxContainer"]
+[node name="InboxButton" type="TextureButton" parent="ButtonContainer"]
 layout_mode = 2
 keep_pressed_outside = true
 texture_normal = ExtResource("2_1haet")
 texture_pressed = ExtResource("3_anlva")
 texture_hover = ExtResource("4_8f84x")
 
-[node name="Label" type="Label" parent="HBoxContainer/InboxButton"]
+[node name="Label" type="Label" parent="ButtonContainer/InboxButton"]
 offset_left = 10.0
 offset_top = 6.0
 offset_right = 384.0
@@ -58,3 +60,174 @@ theme_override_font_sizes/font_size = 32
 text = "Inbox"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ShopScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 1136.0
+offset_top = 141.0
+offset_right = 1906.0
+offset_bottom = 1077.0
+
+[node name="ShopContainer" type="VBoxContainer" parent="ShopScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label2" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label3" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label4" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label5" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label6" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label7" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label8" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label9" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label10" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label11" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label12" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label13" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label14" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label"
+
+[node name="Label15" type="Label" parent="ShopScrollContainer/ShopContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a shop label end
+"
+
+[node name="InboxScrollContainer" type="ScrollContainer" parent="."]
+visible = false
+offset_left = 1136.0
+offset_top = 141.0
+offset_right = 1906.0
+offset_bottom = 1077.0
+
+[node name="InboxContainer" type="VBoxContainer" parent="InboxScrollContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label2" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label3" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label4" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label5" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label6" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label7" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label8" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label9" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label10" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label11" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label12" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label13" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label14" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label"
+
+[node name="Label15" type="Label" parent="InboxScrollContainer/InboxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "This is a inbox label end
+"

@@ -4,7 +4,7 @@ var total_coins = 0.0
 signal coins_updated(coins: float)
 
 func _ready():
-	var clickable_coin = get_tree().root.get_node("Main/ClickableCoin")
+	var clickable_coin = get_tree().root.get_node("Main/Container/ClickableCoin")
 	clickable_coin.clicked.connect(on_clickable_coin_clicked)
 
 	
