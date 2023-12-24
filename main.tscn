@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0vdtj3q5ak6v"]
+[gd_scene load_steps=8 format=3 uid="uid://b0vdtj3q5ak6v"]
 
 [ext_resource type="PackedScene" uid="uid://d2maewpuf1qa0" path="res://clickable_coin.tscn" id="1_0rjbm"]
 [ext_resource type="Texture2D" uid="uid://dc6exchclmk1b" path="res://assets/UI/Rectangle 1.png" id="1_2b4bs"]
 [ext_resource type="Script" path="res://GameManager.gd" id="2_cplhg"]
+[ext_resource type="PackedScene" uid="uid://cx14hdurakdiq" path="res://falling_coin.tscn" id="3_5cqo3"]
 [ext_resource type="PackedScene" uid="uid://bo0jqcn2ub11d" path="res://main_hud.tscn" id="3_8itgo"]
 [ext_resource type="PackedScene" uid="uid://b5j8q7o003bqk" path="res://score_hud.tscn" id="3_vw0tl"]
+
+[sub_resource type="Curve2D" id="Curve2D_qharm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -44, 0, 0, 0, 0, 1088, -36)
+}
+point_count = 2
 
 [node name="Main" type="Node2D"]
 
@@ -16,6 +23,7 @@ metadata/_edit_lock_ = true
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_cplhg")
+falling_coin_scene = ExtResource("3_5cqo3")
 
 [node name="MainHUD" parent="." instance=ExtResource("3_8itgo")]
 
@@ -25,6 +33,16 @@ offset_bottom = 1079.0
 alignment = 1
 
 [node name="ClickableCoin" parent="Container" instance=ExtResource("1_0rjbm")]
+z_index = 1
 position = Vector2(512, 512)
 
 [node name="ScoreHUD" parent="Container" instance=ExtResource("3_vw0tl")]
+
+[node name="FallingCoinPath" type="Path2D" parent="."]
+position = Vector2(0, -20)
+curve = SubResource("Curve2D_qharm")
+metadata/_edit_group_ = true
+
+[node name="FallingCoinSpawn" type="PathFollow2D" parent="FallingCoinPath"]
+position = Vector2(0, -44)
+rotation = 0.00735281

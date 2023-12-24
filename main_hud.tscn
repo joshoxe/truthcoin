@@ -51,6 +51,7 @@ texture_pressed = ExtResource("3_anlva")
 texture_hover = ExtResource("4_8f84x")
 
 [node name="Label" type="Label" parent="ButtonContainer/InboxButton"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 6.0
 offset_right = 384.0

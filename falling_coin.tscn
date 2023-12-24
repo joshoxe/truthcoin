@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cx14hdurakdiq"]
+
+[ext_resource type="Script" path="res://falling_coin.gd" id="1_6363u"]
+[ext_resource type="Texture2D" uid="uid://cr4gh7deas5dk" path="res://assets/sprites/coin.png" id="1_kyw4s"]
+
+[node name="FallingCoin" type="CharacterBody2D"]
+position = Vector2(425, 321)
+script = ExtResource("1_6363u")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-49, -48)
+texture = ExtResource("1_kyw4s")
+centered = false
