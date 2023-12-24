@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bsvml6mojjg7n"
-path="res://.godot/imported/Sora-Bold.ttf-720462b9e9613c0303e001f0bec8656e.fontdata"
+uid="uid://grbxthld78py"
+path="res://.godot/imported/SpaceMono-BoldItalic.ttf-4b9c3844e930af872d311853756c79a0.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/static/Sora-Bold.ttf"
-dest_files=["res://.godot/imported/Sora-Bold.ttf-720462b9e9613c0303e001f0bec8656e.fontdata"]
+source_file="res://assets/fonts/Space_Mono/SpaceMono-BoldItalic.ttf"
+dest_files=["res://.godot/imported/SpaceMono-BoldItalic.ttf-4b9c3844e930af872d311853756c79a0.fontdata"]
 
 [params]
 

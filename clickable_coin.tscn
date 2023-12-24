@@ -24,7 +24,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"clicked",
-"speed": 14.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
