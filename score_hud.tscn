@@ -41,3 +41,6 @@ size_flags_vertical = 0
 bbcode_enabled = true
 text = "[center][font_size=48]0[/font_size] truthcoins"
 autowrap_mode = 2
+
+[node name="ScoreUpdateTimer" type="Timer" parent="."]
+wait_time = 0.2

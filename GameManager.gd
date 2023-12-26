@@ -52,24 +52,20 @@ func remove_coins(amount: int):
 	coins_updated.emit(current_coins)
 
 func add_purchased_miner(miner: Miner):
-	print(miner.base_cost)
-	
 	if current_coins < miner.base_cost:
 		return
-		
+
 	remove_coins(miner.base_cost)
 	purchased_miners.append(miner)
 	miner_purchase_success.emit(miner)
 	calculate_per_second_rate()
-	
+
 func find_owned_miners_of_name(miner_name: String):
 	var owned = 0
 	
 	for miner in purchased_miners:
 		if miner.miner_name == miner_name:
 			owned += 1
-			
-	print("found %d of %s" % [owned, miner_name])
 			
 	return owned
 
