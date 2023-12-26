@@ -3,8 +3,10 @@ extends CanvasLayer
 var game_manager = null
 var current_score = 0
 var target_score = 0
-var positive_score_step = 0.03
-var negative_score_step = 0.00001
+var positive_score_timer = 0.03
+var negative_score_timer = 0.00001
+var positive_score_step = 1
+var negative_score_step = 5
 
 func _ready():
 	game_manager = get_node("/root/Main/GameManager")
@@ -21,11 +23,11 @@ func update_coins(coins):
 
 func on_score_update_timer_timeout():
 	if current_score < target_score:
-		$ScoreUpdateTimer.wait_time = positive_score_step
-		current_score += 1
+		$ScoreUpdateTimer.wait_time = positive_score_timer
+		current_score += positive_score_step
 	elif current_score > target_score:
-		$ScoreUpdateTimer.wait_time = negative_score_step
-		current_score -= 1
+		$ScoreUpdateTimer.wait_time = negative_score_timer
+		current_score -= negative_score_step
 	else:
 		$ScoreUpdateTimer.stop()
 	
