@@ -60,6 +60,7 @@ offset_right = 576.0
 offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("3_3di54")
 theme_override_font_sizes/font_size = 32
+text = "???"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
@@ -71,6 +72,7 @@ offset_right = 576.0
 offset_bottom = 161.0
 theme_override_fonts/font = ExtResource("7_4va4a")
 theme_override_font_sizes/font_size = 16
+text = "??????"
 autowrap_mode = 2
 text_overrun_behavior = 3
 
@@ -82,6 +84,7 @@ offset_right = 392.0
 offset_bottom = 207.0
 theme_override_fonts/font = ExtResource("7_4va4a")
 theme_override_font_sizes/font_size = 14
+text = "??"
 vertical_alignment = 1
 autowrap_mode = 2
 
@@ -93,6 +96,7 @@ offset_right = 640.0
 offset_bottom = 207.0
 theme_override_fonts/font = ExtResource("8_k76na")
 theme_override_font_sizes/font_size = 14
+text = "??"
 vertical_alignment = 1
 
 [node name="CostIcon" type="TextureRect" parent="."]

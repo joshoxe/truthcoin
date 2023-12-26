@@ -11,10 +11,10 @@ func _ready():
 	game_manager.coins_updated.connect(on_coins_updated)
 	
 func on_coins_updated(coins: int):
-	print("coins " + str(coins) + ", base cost " + str(slot_miner.base_cost))
 	if coins < slot_miner.base_cost:
 		disable_slot()
 	else:
+		show_miner()
 		enable_slot()
 	
 func on_miner_purchase_success(miner: Miner):
@@ -32,11 +32,13 @@ func enable_slot():
 
 func set_miner(miner: Miner):
 	slot_miner = miner
-	set_miner_image(miner.image_path)
-	set_name_label(miner.miner_name)
-	set_description_label(miner.description)
+	
+func show_miner():
+	set_miner_image(slot_miner.image_path)
+	set_name_label(slot_miner.miner_name)
+	set_description_label(slot_miner.description)
 	set_cost_label(slot_miner.base_cost)
-	set_per_second_label(miner.earn_rate)
+	set_per_second_label(slot_miner.earn_rate)
 
 func on_buy_button_pressed():
 	miner_purchased.emit(slot_miner)
