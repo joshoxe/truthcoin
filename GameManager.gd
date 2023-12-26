@@ -29,24 +29,27 @@ func calculate_per_second_rate():
 	per_second_rate_updated.emit(per_second_rate)
 
 func on_coin_timer_timeout():
+	print("Timed out after " + str($CoinTimer.wait_time))
 	increase_coins_from_miners(per_second_rate)
 	
+	if (per_second_rate > 0):
+		$CoinTimer.wait_time = 1 / per_second_rate
+	
 func on_clickable_coin_clicked():
-	increase_coins()
+	increase_coins(1)
 
 func increase_coins_from_miners(amount: float):
-	fractional_coins += amount
-
-	while fractional_coins >= 1.0:
-		fractional_coins -= 1.0
-		spawn_falling_coin()		
-		increase_coins()
+	fractional_coins += per_second_rate * $CoinTimer.wait_time
+	var whole_coins = int(fractional_coins)
+	fractional_coins -= whole_coins
+	increase_coins(whole_coins)
 		
-func increase_coins():
-	current_coins += 1
-	total_coins += 1
+func increase_coins(whole_coins):
+	current_coins += whole_coins
+	total_coins += whole_coins
 
 	coins_updated.emit(current_coins)
+	spawn_falling_coin()
 	
 func remove_coins(amount: int):
 	current_coins -= amount
