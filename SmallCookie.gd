@@ -14,7 +14,7 @@ func _ready():
 	velocity.x = x
 	tween = get_tree().create_tween()
 	tween.tween_property($Sprite2D, "modulate", Color(1, 1, 1, 0), 1.0)
-	tween.tween_callback($Sprite2D.queue_free)
+	tween.tween_callback(queue_free)
 
 func _physics_process(delta):
 	# Add the gravity.
