@@ -40,6 +40,5 @@ func update_label():
 		call_deferred("update_label")
 
 func on_coins_updated(coins):
-	print("new coins" + str(coins))
 	coins = round(coins)
 	update_coins(coins)

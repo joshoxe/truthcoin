@@ -9,6 +9,7 @@ signal coins_updated(coins: int)
 signal miner_purchase_success(miner: Miner)
 signal per_second_rate_updated(rate: float)
 var purchased_miners: Array[Miner]
+var rng = RandomNumberGenerator.new()
 
 func _ready():
 	var clickable_coin = get_tree().root.get_node("Main/Container/ClickableCoin")
@@ -70,10 +71,9 @@ func find_owned_miners_of_name(miner_name: String):
 	return owned
 
 func spawn_falling_coin():
-	print('spawn falling coin')
 	var falling_coin = falling_coin_scene.instantiate()
 	var path = get_tree().root.get_node("Main/FallingCoinPath/FallingCoinSpawn")
 	path.progress_ratio = randf()
-	print(path.position)
 	falling_coin.position = path.position
+	falling_coin.position.y += rng.randi_range(-200, -500)
 	get_tree().root.get_node("Main").add_child(falling_coin)
