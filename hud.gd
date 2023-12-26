@@ -6,7 +6,7 @@ var target_score = 0
 var positive_score_timer = 0.03
 var negative_score_timer = 0.00001
 var positive_score_step = 1
-var negative_score_step = 5
+var negative_score_step = 8
 
 func _ready():
 	game_manager = get_node("/root/Main/GameManager")
@@ -27,7 +27,7 @@ func on_score_update_timer_timeout():
 		current_score += positive_score_step
 	elif current_score > target_score:
 		$ScoreUpdateTimer.wait_time = negative_score_timer
-		current_score -= negative_score_step
+		current_score -= (current_score - target_score) / negative_score_step
 	else:
 		$ScoreUpdateTimer.stop()
 	
