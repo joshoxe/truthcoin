@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://jh11q6bk7emq"]
+
+[ext_resource type="Texture2D" uid="uid://ysfgyruqid6f" path="res://assets/UI/shop_slot2.png" id="1_7uyan"]
+[ext_resource type="Texture2D" uid="uid://bmw2jmfhk1y4p" path="res://assets/UI/buy_button.png" id="2_ja3ir"]
+[ext_resource type="Script" path="res://shop_slot.gd" id="2_mo74b"]
+[ext_resource type="FontFile" uid="uid://b67554lnuypc0" path="res://assets/fonts/Space_Mono/SpaceMono-Bold.ttf" id="3_3di54"]
+[ext_resource type="Texture2D" uid="uid://gqq6d4f04hip" path="res://assets/UI/buy_button_pressed.png" id="3_dxrin"]
+[ext_resource type="Texture2D" uid="uid://bomceqoap187s" path="res://assets/UI/buy_button_hovered.png" id="4_y5ota"]
+[ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="7_4va4a"]
+[ext_resource type="FontFile" uid="uid://bnqwh70ic5u0h" path="res://assets/fonts/Space_Mono/SpaceMono-Italic.ttf" id="8_k76na"]
+[ext_resource type="Texture2D" uid="uid://cr4gh7deas5dk" path="res://assets/sprites/coin.png" id="9_522kq"]
+
+[node name="ShopSlot" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7uyan")
+script = ExtResource("2_mo74b")
+
+[node name="DisabledOverlay" type="ColorRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 216.0
+color = Color(0.121569, 0.121569, 0.121569, 0.572549)
+
+[node name="BuyButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 43.0
+offset_right = 746.0
+offset_bottom = 165.0
+texture_normal = ExtResource("2_ja3ir")
+texture_pressed = ExtResource("3_dxrin")
+texture_hover = ExtResource("4_y5ota")
+
+[node name="BuyLabel" type="Label" parent="BuyButton"]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 110.0
+theme_override_fonts/font = ExtResource("3_3di54")
+theme_override_font_sizes/font_size = 24
+text = "Buy
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MinerImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 20.0
+offset_right = 210.0
+offset_bottom = 200.0
+expand_mode = 2
+
+[node name="MinerName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 23.0
+offset_right = 576.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("3_3di54")
+theme_override_font_sizes/font_size = 32
+text = "???"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="MinerDescription" type="Label" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 81.0
+offset_right = 576.0
+offset_bottom = 161.0
+theme_override_fonts/font = ExtResource("7_4va4a")
+theme_override_font_sizes/font_size = 16
+text = "??????"
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 184.0
+offset_right = 392.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("7_4va4a")
+theme_override_font_sizes/font_size = 14
+text = "??"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PerSecondLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 184.0
+offset_right = 640.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("8_k76na")
+theme_override_font_sizes/font_size = 14
+text = "??"
+vertical_alignment = 1
+
+[node name="CostIcon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 176.0
+offset_right = 264.0
+offset_bottom = 216.0
+texture = ExtResource("9_522kq")
+expand_mode = 1
