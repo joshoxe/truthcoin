@@ -40,6 +40,7 @@ func on_miner_updated(miner):
 	for slot in slots:
 		if slot.miner_id == miner.id:
 			slot.set_cost_label(miner.base_cost)
+			slot.enable_buy_button()
 			return
 	
 func on_inbox_button_clicked():

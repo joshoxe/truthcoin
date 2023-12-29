@@ -51,6 +51,7 @@ func show_miner():
 
 func on_buy_button_pressed():
 	miner_purchased.emit(miner_id)
+	$BuyButton.disabled = true
 
 func set_miner_image(path: String):
 	$MinerImage.texture = load(path)
@@ -66,3 +67,6 @@ func set_cost_label(price: int):
 
 func set_per_second_label(ps: float):
 	$PerSecondLabel.text = "%10.2f per second" % ps
+
+func enable_buy_button():
+	$BuyButton.disabled = false
