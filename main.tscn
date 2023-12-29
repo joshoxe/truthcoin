@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0vdtj3q5ak6v"]
+[gd_scene load_steps=12 format=3 uid="uid://b0vdtj3q5ak6v"]
 
 [ext_resource type="PackedScene" uid="uid://d2maewpuf1qa0" path="res://clickable_coin.tscn" id="1_0rjbm"]
 [ext_resource type="Texture2D" uid="uid://dc6exchclmk1b" path="res://assets/UI/Rectangle 1.png" id="1_2b4bs"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://b5j8q7o003bqk" path="res://score_hud.tscn" id="3_vw0tl"]
 [ext_resource type="PackedScene" uid="uid://jh11q6bk7emq" path="res://shop_slot.tscn" id="5_nygwg"]
 [ext_resource type="Script" path="res://shop_manager.gd" id="7_6sfbp"]
+[ext_resource type="Script" path="res://SaveGame.gd" id="9_0jjyg"]
+[ext_resource type="PackedScene" uid="uid://363e0ercu5nb" path="res://player.tscn" id="10_06hcy"]
 
 [sub_resource type="Curve2D" id="Curve2D_qharm"]
 _data = {
@@ -23,14 +25,14 @@ offset_bottom = 1080.0
 texture = ExtResource("1_2b4bs")
 metadata/_edit_lock_ = true
 
-[node name="ShopManager" type="Node" parent="."]
-script = ExtResource("7_6sfbp")
-
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("2_cplhg")
 falling_coin_scene = ExtResource("3_5cqo3")
 
 [node name="CoinTimer" type="Timer" parent="GameManager"]
+
+[node name="ShopManager" type="Node" parent="." groups=["persist"]]
+script = ExtResource("7_6sfbp")
 
 [node name="MainHUD" parent="." instance=ExtResource("3_8itgo")]
 shop_slot_scene = ExtResource("5_nygwg")
@@ -54,3 +56,8 @@ metadata/_edit_group_ = true
 [node name="FallingCoinSpawn" type="PathFollow2D" parent="FallingCoinPath"]
 position = Vector2(0, -44)
 rotation = 0.00735281
+
+[node name="SaveGame" type="Node" parent="."]
+script = ExtResource("9_0jjyg")
+
+[node name="Player" parent="." instance=ExtResource("10_06hcy")]

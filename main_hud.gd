@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var shop_manager = null
 var game_manager = null
+var player = null
 @export var shop_slot_scene: PackedScene
 var slots = []
 
@@ -15,17 +16,31 @@ func _ready():
 	$"ButtonContainer/ShopButton".pressed.connect(on_shop_button_clicked)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	game_manager = get_tree().root.get_node("Main/GameManager")
+	shop_manager.miner_updated.connect(on_miner_updated)
+	game_manager.coins_updated.connect(on_coins_updated)
 
-	for miner in shop_manager.miners:
+	for miner in shop_manager.shop_miners:
 		var shop_slot = shop_slot_scene.instantiate()
 		shop_slot.position = Vector2(SHOP_SLOT_X, SHOP_SLOT_Y)
-		shop_slot.set_miner(miner)
+		shop_slot.set_miner_id(miner.id)
 		shop_slot.miner_purchased.connect(on_miner_purchased)
 		slots.append(shop_slot)
 		$ShopScrollContainer/ShopContainer.add_child(shop_slot)
+		
+func on_coins_updated(coins: int):
+	for slot in slots:
+		slot.check_player_can_afford(coins)
 
-func on_miner_purchased(miner):
+func on_miner_purchased(miner_id: int):
+	var miner = shop_manager.get_miner_by_id(miner_id)
 	game_manager.add_purchased_miner(miner)
+	shop_manager.miner_purchased(miner_id)
+	
+func on_miner_updated(miner):
+	for slot in slots:
+		if slot.miner_id == miner.id:
+			slot.set_cost_label(miner.base_cost)
+			return
 	
 func on_inbox_button_clicked():
 	$ShopScrollContainer.visible = false
