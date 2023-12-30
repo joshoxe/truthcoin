@@ -10,10 +10,15 @@ var SHOP_SLOT_X = 1140
 var SHOP_SLOT_Y = 150
 var SHOP_SLOT_Y_ADDITION = 250
 
+signal wipe_save
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"ButtonContainer/InboxButton".pressed.connect(on_inbox_button_clicked)
 	$"ButtonContainer/ShopButton".pressed.connect(on_shop_button_clicked)
+	$WipeSaveButton.pressed.connect(on_wipe_save_button_pressed)
+	$WipeSaveDialogue/WipeSaveCancel.pressed.connect(on_wipe_save_cancel_pressed)
+	$WipeSaveDialogue/WipeSaveConfirm.pressed.connect(on_wipe_save_confirm_pressed)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	game_manager = get_tree().root.get_node("Main/GameManager")
 	shop_manager.miner_updated.connect(on_miner_updated)
@@ -50,3 +55,15 @@ func on_inbox_button_clicked():
 func on_shop_button_clicked():
 	$InboxScrollContainer.visible = false
 	$ShopScrollContainer.visible = true
+	
+func on_wipe_save_button_pressed():
+	$WipeSaveDialogue.visible = true
+
+func on_wipe_save_cancel_pressed():
+	$WipeSaveDialogue.visible = false
+	
+func on_wipe_save_confirm_pressed():
+	wipe_save.emit()
+	$WipeSaveDialogue.visible = false
+	
+

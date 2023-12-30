@@ -18,11 +18,14 @@ func _ready():
 	player.player_loaded.connect(on_player_loaded)
 
 func on_player_loaded(player: Player):
+	print(player.current_coins)
 	current_score = player.current_coins
 	$ScoreLabel.text = "[center][font_size=48]" + str(current_score) + "[/font_size] truthcoins"
 	
-	if player.per_second_rate != null:
+	if player.per_second_rate != null and player.per_second_rate > 0:
 		$ColorRect/PerSecondLabel.text = "%10.2f per second" % player.per_second_rate
+	if player.per_second_rate == 0:
+		$ColorRect/PerSecondLabel.text = ""
 	
 func on_per_second_rate_updated(rate: float):
 	$ColorRect/PerSecondLabel.text = "%10.2f per second" % rate

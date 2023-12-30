@@ -2,6 +2,7 @@ class_name ShopManager extends Node
 
 var shop_miners = Array()
 signal miner_updated(miner: Miner)
+signal miner_reset(miner: Miner)
 
 func load(game_data):
 		for miner_data in game_data["shop_miners"]:
@@ -58,8 +59,16 @@ func miner_purchased(miner_id):
 func save():
 	var miner_data = []
 	for miner in shop_miners:
+		print("saving %s with base cost $d" % [miner.miner_name, miner.base_cost])
 		miner_data.append(miner.save())
 		
 	return {
 		"shop_miners": miner_data
 	}
+	
+func reset():
+	shop_miners = []
+	read_miners_from_json("res://assets/data/miners.json")
+	
+	for miner in shop_miners:
+		miner_reset.emit(miner)

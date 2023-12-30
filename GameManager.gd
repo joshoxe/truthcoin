@@ -11,6 +11,7 @@ func _ready():
 	var player_data = await get_tree().root.get_node("Main/SaveGame").get_player_data()
 	var shop_data = await get_tree().root.get_node("Main/SaveGame").get_shop_data()
 	var shop_manager = get_tree().root.get_node("Main/ShopManager")
+	var main_hud = get_tree().root.get_node("Main/MainHUD")
 	player = get_tree().root.get_node("Main/Player")
 	if player_data != null:
 		player.load(player_data)
@@ -24,8 +25,24 @@ func _ready():
 	clickable_coin.clicked.connect(on_clickable_coin_clicked)
 	$CoinTimer.timeout.connect(on_coin_timer_timeout)
 	calculate_per_second_rate()
+	
+	main_hud.wipe_save.connect(on_wipe_save)
+	shop_manager.miner_updated.connect(on_miner_updated)
 
 	$CoinTimer.start()
+	
+func on_wipe_save():
+	var save_game = get_tree().root.get_node("Main/SaveGame")
+	var player = get_tree().root.get_node("Main/Player")
+	var shop_manager = get_tree().root.get_node("Main/ShopManager")
+	save_game.wipe_save()
+	UniqueIdGenerator.reset()
+	player.reset()
+	shop_manager.reset()
+	increase_coins(0)
+	
+func on_miner_updated(_miner: Miner):
+	save_shop()
 	
 func calculate_per_second_rate():
 	player.per_second_rate = 0
@@ -57,7 +74,7 @@ func increase_coins(whole_coins):
 
 		coins_updated.emit(player.current_coins)
 		spawn_falling_coin()
-		save_game()
+		save_player()
 
 func remove_coins(amount: int):
 	player.current_coins -= amount
@@ -71,7 +88,7 @@ func add_purchased_miner(miner: Miner):
 	player.purchased_miners.append(miner)
 	miner_purchase_success.emit(miner)
 	calculate_per_second_rate()
-	save_game()
+	save_player()
 
 func find_owned_miners_of_name(miner_name: String):
 	var owned = 0
@@ -89,6 +106,8 @@ func spawn_falling_coin():
 	falling_coin.position = path.position
 	get_tree().root.get_node("Main").add_child(falling_coin)
 
-func save_game():
+func save_player():
 	get_tree().root.get_node("Main/SaveGame").save_player()
+	
+func save_shop():
 	get_tree().root.get_node("Main/SaveGame").save_shop()

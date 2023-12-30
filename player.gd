@@ -22,6 +22,15 @@ func save():
 		"purchased_miners": miner_data,
 		"per_second_rate": per_second_rate,
 	}
+	
+func reset():
+	total_coins = 0
+	current_coins = 0
+	fractional_coins = 0.0
+	per_second_rate = 0.0
+	purchased_miners = []
+	
+	player_loaded.emit(self)
 
 func load(player_data):
 	for miner_data in player_data["purchased_miners"]:

@@ -75,3 +75,10 @@ func get_shop_data():
 		var game_data = json.get_data()
 
 		return game_data
+		
+func wipe_save():
+	if FileAccess.file_exists(player_save_path):
+		DirAccess.remove_absolute(player_save_path)
+		
+	if FileAccess.file_exists(shop_save_path):
+		DirAccess.remove_absolute(shop_save_path)

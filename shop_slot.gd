@@ -3,6 +3,7 @@ extends TextureRect
 var miner_id: int
 var shop_manager = null
 var player = null
+var slot_visible = false
 signal miner_purchased(miner)
 
 func get_miner():
@@ -11,8 +12,12 @@ func get_miner():
 func _ready():
 	$BuyButton.pressed.connect(on_buy_button_pressed)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
+	shop_manager.miner_reset.connect(on_miner_reset)
 	player = get_tree().root.get_node("Main/Player")
 	player.player_loaded.connect(on_player_loaded)
+	
+func on_miner_reset(miner: Miner):
+	hide_miner()
 	
 func on_player_loaded(player: Player):
 	var miner = get_miner()
@@ -48,10 +53,17 @@ func show_miner():
 	set_description_label(miner.description)
 	set_cost_label(miner.base_cost)
 	set_per_second_label(miner.earn_rate)
+	
+func hide_miner():
+	set_miner_image("")
+	set_name_label("???")
+	set_description_label("??????")
+	hide_cost_label()
+	hide_per_second_label()
 
 func on_buy_button_pressed():
-	miner_purchased.emit(miner_id)
 	$BuyButton.disabled = true
+	miner_purchased.emit(miner_id)
 
 func set_miner_image(path: String):
 	$MinerImage.texture = load(path)
@@ -65,8 +77,14 @@ func set_description_label(description: String):
 func set_cost_label(price: int):
 	$CostLabel.text = "%d" % price
 
+func hide_cost_label():
+	$CostLabel.text = "??"
+
 func set_per_second_label(ps: float):
 	$PerSecondLabel.text = "%10.2f per second" % ps
+	
+func hide_per_second_label():
+	$PerSecondLabel.text = "??"
 
 func enable_buy_button():
 	$BuyButton.disabled = false
