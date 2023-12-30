@@ -2,6 +2,7 @@ extends Node
 
 @export var falling_coin_scene: PackedScene
 var player: Node
+var shop_manager: Node
 signal coins_updated(coins: int)
 signal miner_purchase_success(miner: Miner)
 signal per_second_rate_updated(rate: float)
@@ -10,7 +11,7 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	var player_data = await get_tree().root.get_node("Main/SaveGame").get_player_data()
 	var shop_data = await get_tree().root.get_node("Main/SaveGame").get_shop_data()
-	var shop_manager = get_tree().root.get_node("Main/ShopManager")
+	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	var main_hud = get_tree().root.get_node("Main/MainHUD")
 	player = get_tree().root.get_node("Main/Player")
 	if player_data != null:
@@ -86,6 +87,7 @@ func add_purchased_miner(miner: Miner):
 
 	remove_coins(miner.base_cost)
 	player.purchased_miners.append(miner)
+	shop_manager.miner_purchased(miner.id)
 	miner_purchase_success.emit(miner)
 	calculate_per_second_rate()
 	save_player()

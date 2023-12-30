@@ -39,7 +39,6 @@ func on_coins_updated(coins: int):
 func on_miner_purchased(miner_id: int):
 	var miner = shop_manager.get_miner_by_id(miner_id)
 	game_manager.add_purchased_miner(miner)
-	shop_manager.miner_purchased(miner_id)
 	
 func on_miner_updated(miner):
 	for slot in slots:
