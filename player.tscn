@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://363e0ercu5nb"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_rxlh4"]
+
+[node name="Player" type="Node" groups=["persist"]]
+script = ExtResource("1_rxlh4")

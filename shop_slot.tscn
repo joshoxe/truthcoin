@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://jh11q6bk7emq"]
+[gd_scene load_steps=11 format=3 uid="uid://jh11q6bk7emq"]
 
 [ext_resource type="Texture2D" uid="uid://ysfgyruqid6f" path="res://assets/UI/shop_slot2.png" id="1_7uyan"]
 [ext_resource type="Texture2D" uid="uid://bmw2jmfhk1y4p" path="res://assets/UI/buy_button.png" id="2_ja3ir"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="7_4va4a"]
 [ext_resource type="FontFile" uid="uid://bnqwh70ic5u0h" path="res://assets/fonts/Space_Mono/SpaceMono-Italic.ttf" id="8_k76na"]
 [ext_resource type="Texture2D" uid="uid://cr4gh7deas5dk" path="res://assets/sprites/coin.png" id="9_522kq"]
+[ext_resource type="Script" path="res://player.gd" id="10_6bmp1"]
 
 [node name="ShopSlot" type="TextureRect"]
 offset_right = 40.0
@@ -107,3 +108,6 @@ offset_right = 264.0
 offset_bottom = 216.0
 texture = ExtResource("9_522kq")
 expand_mode = 1
+
+[node name="Player" type="Node" parent="."]
+script = ExtResource("10_6bmp1")

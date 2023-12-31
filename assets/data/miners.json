@@ -1,0 +1,18 @@
+[
+	{
+		"miner_name": "Gramps Crypto Rig",
+		"description": "An old-timer with an ancient PC",
+		"base_cost": 20,
+		"earn_rate": 0.1,
+		"cost_multiplier": 1.2,
+		"image_path": "res://assets/sprites/grandpa.png"
+	},
+	{
+		"miner_name": "Whiz Kid",
+		"description": "A bright, curious youngster armed with a laptop and a knack for algorithms.",
+		"base_cost": 80,
+		"earn_rate": 0.5,
+		"cost_multiplier": 1.2,
+		"image_path": "res://assets/sprites/kid.png"
+	}
+]

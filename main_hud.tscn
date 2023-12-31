@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bo0jqcn2ub11d"]
+[gd_scene load_steps=13 format=3 uid="uid://bo0jqcn2ub11d"]
 
 [ext_resource type="Texture2D" uid="uid://btfq4a2yk5sdo" path="res://assets/UI/sidebar4.png" id="1_umi2u"]
 [ext_resource type="Script" path="res://main_hud.gd" id="1_yao43"]
@@ -6,6 +6,12 @@
 [ext_resource type="FontFile" uid="uid://b67554lnuypc0" path="res://assets/fonts/Space_Mono/SpaceMono-Bold.ttf" id="3_5u3qr"]
 [ext_resource type="Texture2D" uid="uid://bx4cscoqjmuii" path="res://assets/UI/button_pressed2.png" id="3_anlva"]
 [ext_resource type="Texture2D" uid="uid://bnb8ur38gste8" path="res://assets/UI/button_hovered.png" id="4_8f84x"]
+[ext_resource type="Texture2D" uid="uid://qqmljawtg6bh" path="res://assets/UI/wipe_save_button.png" id="7_6stvc"]
+[ext_resource type="Texture2D" uid="uid://duc15ls372r51" path="res://assets/UI/wipe_save_button_hover.png" id="8_bwwbt"]
+[ext_resource type="Texture2D" uid="uid://bh1nxj8lxfgy" path="res://assets/UI/wipe_save_button_pressed.png" id="9_pmpk5"]
+[ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="10_pwvx3"]
+[ext_resource type="Texture2D" uid="uid://b2iphrtibf43a" path="res://assets/UI/dialogue.png" id="11_vgpem"]
+[ext_resource type="Texture2D" uid="uid://befhmmmeu4d68" path="res://assets/UI/dialogue_button_normal.png" id="12_edk2y"]
 
 [node name="MainHUD" type="CanvasLayer"]
 script = ExtResource("1_yao43")
@@ -156,3 +162,91 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 48
 text = "This is a inbox label end
 "
+
+[node name="WipeSaveButton" type="TextureButton" parent="."]
+offset_left = -1.0
+offset_top = 1038.0
+offset_right = 174.0
+offset_bottom = 1095.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_6stvc")
+texture_pressed = ExtResource("8_bwwbt")
+texture_hover = ExtResource("9_pmpk5")
+metadata/_edit_group_ = true
+
+[node name="WipeSaveLabel" type="Label" parent="WipeSaveButton"]
+layout_mode = 0
+offset_left = 6.0
+offset_right = 158.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("10_pwvx3")
+text = "Wipe Save"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WipeSaveDialogue" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -396.5
+offset_top = -124.5
+offset_right = 396.5
+offset_bottom = 124.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_vgpem")
+
+[node name="WipeSaveConfirm" type="TextureButton" parent="WipeSaveDialogue"]
+layout_mode = 0
+offset_left = 180.5
+offset_top = 168.5
+offset_right = 355.5
+offset_bottom = 225.5
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_6stvc")
+texture_pressed = ExtResource("9_pmpk5")
+texture_hover = ExtResource("8_bwwbt")
+
+[node name="WipeSaveConfirmLabel" type="Label" parent="WipeSaveDialogue/WipeSaveConfirm"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -1.0
+offset_right = 160.0
+offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("10_pwvx3")
+text = "Wipe Save"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WipeSaveCancel" type="TextureButton" parent="WipeSaveDialogue"]
+layout_mode = 0
+offset_left = 420.5
+offset_top = 168.5
+offset_right = 583.5
+offset_bottom = 213.5
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("12_edk2y")
+
+[node name="WipeSaveCancelLabel" type="Label" parent="WipeSaveDialogue/WipeSaveCancel"]
+layout_mode = 0
+offset_left = 8.0
+offset_right = 160.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("10_pwvx3")
+text = "Cancel"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WipeSaveLabel" type="RichTextLabel" parent="WipeSaveDialogue"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 73.0
+offset_right = 717.0
+offset_bottom = 162.0
+theme_override_fonts/normal_font = ExtResource("10_pwvx3")
+theme_override_fonts/bold_font = ExtResource("3_5u3qr")
+bbcode_enabled = true
+text = "[center]This will [b][color=red]permanently delete[/color][/b] your save file [b][color=red]forever[/color][/b]"
