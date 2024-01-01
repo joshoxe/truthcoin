@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bo0jqcn2ub11d"]
+[gd_scene load_steps=14 format=3 uid="uid://bo0jqcn2ub11d"]
 
 [ext_resource type="Texture2D" uid="uid://btfq4a2yk5sdo" path="res://assets/UI/sidebar4.png" id="1_umi2u"]
 [ext_resource type="Script" path="res://main_hud.gd" id="1_yao43"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="10_pwvx3"]
 [ext_resource type="Texture2D" uid="uid://b2iphrtibf43a" path="res://assets/UI/dialogue.png" id="11_vgpem"]
 [ext_resource type="Texture2D" uid="uid://befhmmmeu4d68" path="res://assets/UI/dialogue_button_normal.png" id="12_edk2y"]
+[ext_resource type="PackedScene" uid="uid://btrcu6a6k6xcf" path="res://message_dialogue.tscn" id="13_acjie"]
 
 [node name="MainHUD" type="CanvasLayer"]
 script = ExtResource("1_yao43")
@@ -86,82 +87,6 @@ offset_bottom = 1077.0
 
 [node name="InboxContainer" type="VBoxContainer" parent="InboxScrollContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label2" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label3" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label4" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label5" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label6" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label7" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label8" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label9" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label10" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label11" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label12" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label13" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label14" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label"
-
-[node name="Label15" type="Label" parent="InboxScrollContainer/InboxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "This is a inbox label end
-"
 
 [node name="WipeSaveButton" type="TextureButton" parent="."]
 offset_left = -1.0
@@ -250,3 +175,5 @@ theme_override_fonts/normal_font = ExtResource("10_pwvx3")
 theme_override_fonts/bold_font = ExtResource("3_5u3qr")
 bbcode_enabled = true
 text = "[center]This will [b][color=red]permanently delete[/color][/b] your save file [b][color=red]forever[/color][/b]"
+
+[node name="MessageDialogue" parent="." instance=ExtResource("13_acjie")]

@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 UniqueIdGenerator="*res://unique_id_generator.gd"
+Player="*res://player.gd"
+MessageManager="*res://message_manager.gd"
 
 [display]
 

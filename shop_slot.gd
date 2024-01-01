@@ -55,7 +55,7 @@ func show_miner():
 	set_per_second_label(miner.earn_rate)
 	
 func hide_miner():
-	set_miner_image("")
+	remove_miner_image()
 	set_name_label("???")
 	set_description_label("??????")
 	hide_cost_label()
@@ -67,6 +67,9 @@ func on_buy_button_pressed():
 
 func set_miner_image(path: String):
 	$MinerImage.texture = load(path)
+	
+func remove_miner_image():
+	$MinerImage.texture = null
 	
 func set_name_label(name: String):
 	$MinerName.text = name

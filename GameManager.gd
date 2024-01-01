@@ -9,8 +9,12 @@ signal per_second_rate_updated(rate: float)
 var rng = RandomNumberGenerator.new()
 
 func _ready():
+	MessageManager.load_messages_from_json()
+	MessageManager.new_message.connect(on_new_message)
+		
 	var player_data = await get_tree().root.get_node("Main/SaveGame").get_player_data()
 	var shop_data = await get_tree().root.get_node("Main/SaveGame").get_shop_data()
+	var messages_data = await get_tree().root.get_node("Main/SaveGame").get_messages_data()
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	var main_hud = get_tree().root.get_node("Main/MainHUD")
 	player = get_tree().root.get_node("Main/Player")
@@ -21,6 +25,9 @@ func _ready():
 		shop_manager.load(shop_data)
 	else:
 		shop_manager.read_miners_from_json("res://assets/data/miners.json")
+
+	if messages_data != null:
+		MessageManager.load(messages_data)
 
 	var clickable_coin = get_tree().root.get_node("Main/Container/ClickableCoin")
 	clickable_coin.clicked.connect(on_clickable_coin_clicked)
@@ -36,10 +43,11 @@ func on_wipe_save():
 	var save_game = get_tree().root.get_node("Main/SaveGame")
 	var player = get_tree().root.get_node("Main/Player")
 	var shop_manager = get_tree().root.get_node("Main/ShopManager")
-	save_game.wipe_save()
 	UniqueIdGenerator.reset()
-	player.reset()
-	shop_manager.reset()
+	await save_game.wipe_save()
+	MessageManager.reset()
+	await shop_manager.reset()
+	await player.reset()
 	increase_coins(0)
 	
 func on_miner_updated(_miner: Miner):
@@ -107,9 +115,15 @@ func spawn_falling_coin():
 	path.progress_ratio = randf()
 	falling_coin.position = path.position
 	get_tree().root.get_node("Main").add_child(falling_coin)
+	
+func on_new_message(message: Message):
+	save_messages()
 
 func save_player():
 	get_tree().root.get_node("Main/SaveGame").save_player()
 	
 func save_shop():
 	get_tree().root.get_node("Main/SaveGame").save_shop()
+	
+func save_messages():
+	get_tree().root.get_node("Main/SaveGame").save_messages()

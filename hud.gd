@@ -18,7 +18,6 @@ func _ready():
 	player.player_loaded.connect(on_player_loaded)
 
 func on_player_loaded(player: Player):
-	print(player.current_coins)
 	current_score = player.current_coins
 	$ScoreLabel.text = "[center][font_size=48]" + str(current_score) + "[/font_size] truthcoins"
 	

@@ -1,4 +1,4 @@
-class_name Player extends Node
+extends Node
 
 var total_coins = 0
 var current_coins = 0
