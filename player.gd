@@ -39,8 +39,8 @@ func load(player_data):
 		purchased_miners.append(miner)
 
 	for i in player_data.keys():
-		if i == "filename" or i == "parent" or i == "purchased_miners":
-			continue
+		print("setting %s" % i)
+		print(player_data[i])
 		set(i, player_data[i])
 
 	call_deferred("emit_player_loaded")

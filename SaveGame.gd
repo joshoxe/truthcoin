@@ -6,23 +6,19 @@ var messages_save_path = "user://messages.save"
 
 func save_player():
 	var save_game = FileAccess.open(player_save_path, FileAccess.WRITE)
-	var player = get_tree().root.get_node("Main/Player")
-			
-	if !player.has_method("save"):
-		print("Game Manager has no `save` function")
 
-	var game_data = player.save()
+	var game_data = Player.save()
 	var game_data_string = JSON.stringify(game_data)
 	save_game.store_line(game_data_string)
 	
 func save_shop():
 	var save_game = FileAccess.open(shop_save_path, FileAccess.WRITE)
-	var player = get_tree().root.get_node("Main/ShopManager")
+	var shop = get_tree().root.get_node("Main/ShopManager")
 			
-	if !player.has_method("save"):
+	if !shop.has_method("save"):
 		print("Shop Manager has no `save` function")
 
-	var game_data = player.save()
+	var game_data = shop.save()
 	var game_data_string = JSON.stringify(game_data)
 	save_game.store_line(game_data_string)
 	
@@ -77,9 +73,6 @@ func get_player_data():
 			return
 			
 		var game_data = json.get_data()
-		
-		if game_data["filename"] == "" or game_data["parent"] == "":
-			return null
 			
 		return game_data
 		
