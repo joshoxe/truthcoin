@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jh11q6bk7emq"]
+[gd_scene load_steps=11 format=3 uid="uid://bv2swenav06fa"]
 
 [ext_resource type="Texture2D" uid="uid://ysfgyruqid6f" path="res://assets/UI/shop_slot2.png" id="1_7uyan"]
 [ext_resource type="Texture2D" uid="uid://bmw2jmfhk1y4p" path="res://assets/UI/buy_button.png" id="2_ja3ir"]
@@ -58,21 +58,20 @@ layout_mode = 0
 offset_left = 225.0
 offset_top = 23.0
 offset_right = 576.0
-offset_bottom = 88.0
+offset_bottom = 98.0
 theme_override_fonts/font = ExtResource("3_3di54")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "???"
 autowrap_mode = 2
-text_overrun_behavior = 3
 
 [node name="MinerDescription" type="Label" parent="."]
 layout_mode = 0
 offset_left = 225.0
-offset_top = 81.0
+offset_top = 96.0
 offset_right = 576.0
 offset_bottom = 161.0
 theme_override_fonts/font = ExtResource("7_4va4a")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 text = "??????"
 autowrap_mode = 2
 text_overrun_behavior = 3
