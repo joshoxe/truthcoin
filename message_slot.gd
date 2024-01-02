@@ -7,7 +7,7 @@ func _ready():
 	$Clickable.input_event.connect(on_input_event)
 
 func on_input_event(viewport:Node, event:InputEvent, shape_idx:int):
-	if event is InputEventMouseButton and event.pressed == true:
+	if event is InputEventMouseButton and event.pressed == true and event.button_mask == 1:
 		clicked.emit(message)
 
 func display_message_as_unread():
