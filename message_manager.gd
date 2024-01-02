@@ -7,6 +7,7 @@ var file_path = "res://assets/data/messages.json"
 var game_manager = null
 
 signal new_message(message: Message)
+signal message_read(message: Message)
 
 func _ready():
 	game_manager = get_tree().root.get_node("Main/GameManager")
@@ -36,6 +37,7 @@ func add_new_message_to_inbox(message: Message):
 	
 func mark_as_read(message: Message):
 	read.append(message)
+	message_read.emit(message)
 
 func load_messages_from_json():
 	if not FileAccess.file_exists(file_path):

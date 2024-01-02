@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bo0jqcn2ub11d"]
+[gd_scene load_steps=16 format=3 uid="uid://cc2mhqigqgf63"]
 
 [ext_resource type="Texture2D" uid="uid://btfq4a2yk5sdo" path="res://assets/UI/sidebar4.png" id="1_umi2u"]
 [ext_resource type="Script" path="res://main_hud.gd" id="1_yao43"]
@@ -12,7 +12,9 @@
 [ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="10_pwvx3"]
 [ext_resource type="Texture2D" uid="uid://b2iphrtibf43a" path="res://assets/UI/dialogue.png" id="11_vgpem"]
 [ext_resource type="Texture2D" uid="uid://befhmmmeu4d68" path="res://assets/UI/dialogue_button_normal.png" id="12_edk2y"]
-[ext_resource type="PackedScene" uid="uid://btrcu6a6k6xcf" path="res://message_dialogue.tscn" id="13_acjie"]
+[ext_resource type="PackedScene" path="res://message_dialogue.tscn" id="13_acjie"]
+[ext_resource type="Texture2D" uid="uid://b5v28uiuc8md1" path="res://assets/UI/notif.png" id="14_8n1nj"]
+[ext_resource type="Script" path="res://InboxNotification.gd" id="15_8vgft"]
 
 [node name="MainHUD" type="CanvasLayer"]
 script = ExtResource("1_yao43")
@@ -177,3 +179,21 @@ bbcode_enabled = true
 text = "[center]This will [b][color=red]permanently delete[/color][/b] your save file [b][color=red]forever[/color][/b]"
 
 [node name="MessageDialogue" parent="." instance=ExtResource("13_acjie")]
+
+[node name="InboxNotification" type="TextureRect" parent="."]
+offset_left = 1776.0
+offset_top = 16.0
+offset_right = 1816.0
+offset_bottom = 56.0
+texture = ExtResource("14_8n1nj")
+script = ExtResource("15_8vgft")
+
+[node name="NotificationLabel" type="Label" parent="InboxNotification"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("3_5u3qr")
+theme_override_font_sizes/font_size = 18
+text = "18"
+horizontal_alignment = 1
+vertical_alignment = 1
