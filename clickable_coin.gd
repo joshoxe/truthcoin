@@ -10,7 +10,6 @@ func _ready():
 	
 func on_input_event(viewport:Node, event:InputEvent, shape_idx:int):
 	if event is InputEventMouseButton and event.pressed == true and event.button_mask == 1:
-		print(event)
 		clicked.emit()
 		spawn_small_cookie(event.position)
 		show_clicked_animation()
