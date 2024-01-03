@@ -115,6 +115,14 @@ func spawn_falling_coin():
 	path.progress_ratio = randf()
 	falling_coin.position = path.position
 	get_tree().root.get_node("Main").add_child(falling_coin)
+
+func apply_cps_boost(boost: float):
+	Player.per_second_rate *= boost
+	per_second_rate_updated.emit(Player.per_second_rate)
+
+func revert_cps_boost(boost: float):
+	Player.per_second_rate /= boost
+	per_second_rate_updated.emit(Player.per_second_rate)
 	
 func on_new_message(message: Message):
 	save_messages()
