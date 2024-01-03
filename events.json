@@ -1,0 +1,9 @@
+[
+	{
+	  "name": "Tech Boom",
+	  "description": "All miners operate 20% more efficiently!",
+	  "effect": {"cps_boost": 1.2},
+	  "duration": 60,
+	  "probability": 0.05
+	}
+]
