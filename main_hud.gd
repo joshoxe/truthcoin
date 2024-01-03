@@ -7,6 +7,7 @@ var player = null
 @export var message_slot_scene: PackedScene
 var slots = []
 var message_slots = []
+var event_popup = preload("res://random_event_popup.tscn")
 
 var SHOP_SLOT_X = 1140
 var SHOP_SLOT_Y = 150
@@ -22,6 +23,8 @@ func _ready():
 	$WipeSaveDialogue/WipeSaveCancel.pressed.connect(on_wipe_save_cancel_pressed)
 	$WipeSaveDialogue/WipeSaveConfirm.pressed.connect(on_wipe_save_confirm_pressed)
 	MessageManager.new_message.connect(on_new_message)
+	EventManager.new_event.connect(on_new_event)
+	EventManager.event_ended.connect(on_event_ended)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	game_manager = get_tree().root.get_node("Main/GameManager")
 	shop_manager.miner_updated.connect(on_miner_updated)
@@ -37,6 +40,18 @@ func _ready():
 		
 	for message in MessageManager.inbox:
 		create_new_message_scene(message)
+		
+func on_event_ended(event: Event):
+	var event_scene = event_popup.instantiate()
+	event_scene.set_popup_y(-235)
+	event_scene.set_event_text(event.end_text)
+	add_child(event_scene)
+		
+func on_new_event(event: Event):
+	var event_scene = event_popup.instantiate()
+	event_scene.set_popup_y(-235)
+	event_scene.set_event_text(event.description)
+	add_child(event_scene)
 		
 func reset_messages():
 	var container = $InboxScrollContainer/InboxContainer

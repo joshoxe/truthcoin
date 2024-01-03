@@ -73,7 +73,6 @@ func increase_coins_from_miners(amount: float):
 	if Player.fractional_coins >= 1.0:
 		whole_coins += int(Player.fractional_coins)
 		Player.fractional_coins -= int(Player.fractional_coins)
-		print("Increasing coins - amount: ", amount, ", whole_coins: ", whole_coins)
 	increase_coins(whole_coins)
 
 func increase_coins(whole_coins):
