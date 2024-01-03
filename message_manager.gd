@@ -36,8 +36,9 @@ func add_new_message_to_inbox(message: Message):
 	new_message.emit(message)
 	
 func mark_as_read(message: Message):
-	read.append(message)
-	message_read.emit(message)
+	if is_unread(message):
+		read.append(message)
+		message_read.emit(message)
 
 func load_messages_from_json():
 	if not FileAccess.file_exists(file_path):
