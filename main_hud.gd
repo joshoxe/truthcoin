@@ -8,6 +8,7 @@ var player = null
 var slots = []
 var message_slots = []
 var event_popup = preload("res://random_event_popup.tscn")
+var buff_label = preload("res://buff_label.tscn")
 
 var SHOP_SLOT_X = 1140
 var SHOP_SLOT_Y = 150
@@ -42,17 +43,42 @@ func _ready():
 		create_new_message_scene(message)
 		
 func on_event_ended(event: Event):
-	var event_scene = event_popup.instantiate()
-	event_scene.set_popup_y(-235)
-	event_scene.set_event_text(event.end_text)
-	add_child(event_scene)
+	add_event_popup(event.end_text)
+	remove_buff_text(event)
 		
 func on_new_event(event: Event):
+	add_event_popup(event.description)
+	add_buff_text(event)
+
+func add_buff_text(event: Event):
+	var buff_label_scene = buff_label.instantiate()
+	if event.buff_effect == "positive":
+		buff_label_scene.set_positive()
+	else:
+		buff_label_scene.set_negative()
+	
+	buff_label_scene.set_text(event.buff_text)
+	$BuffLabelContainer.add_child(buff_label_scene)
+	
+func remove_buff_text(event: Event):
+	var container = $BuffLabelContainer
+	var i = 0
+	while container.get_child_count() > i:
+		i += 1
+		var child = container.get_child(0)
+		print(child)
+		print(child.text)
+		if child.text == event.buff_text:
+			container.remove_child(child)
+			child.queue_free()
+			return
+	
+func add_event_popup(text: String):
 	var event_scene = event_popup.instantiate()
 	event_scene.set_popup_y(-235)
-	event_scene.set_event_text(event.description)
+	event_scene.set_event_text(text)
 	add_child(event_scene)
-		
+
 func reset_messages():
 	var container = $InboxScrollContainer/InboxContainer
 	while container.get_child_count() > 0:

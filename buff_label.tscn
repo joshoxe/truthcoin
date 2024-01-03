@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://qqidewd28f8l"]
+
+[ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="1_y3ixf"]
+[ext_resource type="Script" path="res://buff_label.gd" id="2_lm334"]
+
+[node name="BuffLabel" type="Label"]
+offset_right = 120.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_y3ixf")
+script = ExtResource("2_lm334")

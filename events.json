@@ -3,6 +3,8 @@
 		"name": "Tech Boom",
 		"description": "All miners operate 20% more efficiently for the next minute!",
 		"end_text": "Miners no longer operating 20% more efficiently",
+		"buff_text": "20% miner efficiency",
+		"buff_effect": "positive",
 		"effects": [{
 			"key": "cps_boost", "value": 1.2
 		}],
