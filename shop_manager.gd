@@ -59,7 +59,6 @@ func miner_purchased(miner_id):
 func save():
 	var miner_data = []
 	for miner in shop_miners:
-		print("saving %s with base cost $d" % [miner.miner_name, miner.base_cost])
 		miner_data.append(miner.save())
 		
 	return {

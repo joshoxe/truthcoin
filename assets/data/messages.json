@@ -1,0 +1,146 @@
+[
+	{
+		"from": "Sam",
+		"subject": "Welcome Aboard!",
+		"content": "Hey bud, welcome to Quantum Dynamics. Uh.. I was told to welcome you to the team, so.. welcome! We're here to mine truthcoins -- there's an end of year bonus for the employee with the most coin, start clicking!",
+		"coin_trigger": 0
+	},
+	{
+		"from": "Sam",
+		"subject": "Upgrades",
+		"content": "We can hire helpers for our mining setups to get coins a little faster you know? I just saw a guy down in Block C who had over a thousand grandpas working for him!",
+		"coin_trigger": 20
+	},
+	{
+		"from": "Sam",
+		"subject": "The truth will out!",
+		"content": "Just heard about you on the grapevine, 10k truthcoins! Congratulations. Just think about all the people we're helping, no more fake news!",
+		"coin_trigger": 10000
+	},
+	{
+		"from": "Sam",
+		"subject": "Weird conversation?",
+		"content": "I just spoke to that guy on Block C. The one with all the grandpas, remember? Anyway, he was saying some weird stuff about truthcoins. Something about a cipher and a hidden door?",
+		"coin_trigger": 50000
+	},
+	{
+		"from": "Sam",
+		"subject": "Rumors",
+		"content": "Hey, have you been hearing these weird rumors about Quantum Dynamics? I mean, probably just office gossip, right? Anyway, back to mining!",
+		"coin_trigger": 100000
+	},
+	{
+		"from": "Quantum Dynamics",
+		"subject": "Ignore the Rumors",
+		"content": "Attention team, please ignore any unfounded rumors about our operations. Stay focused on your goals and remember, every truthcoin brings us closer to clarity.",
+		"coin_trigger": 200000
+	},
+	{
+		"from": "Sam",
+		"subject": "Something's Up",
+		"content": "Okay, now even I'm starting to wonder what's up. That guy with the grandpas? He's gone. No one's seen him in days. And his mining station is just... empty.",
+		"coin_trigger": 500000
+	},
+		{
+		"from": "Cipher",
+		"subject": "Look Closer",
+		"content": "Your work is affecting more than just numbers. Watch the news.",
+		"coin_trigger": 1000000
+	},
+	{
+		"from": "Cipher",
+		"subject": "Be Ready",
+		"content": "When the time comes, I will appear, and you will know what to do.",
+		"coin_trigger": 2000000
+	},
+	   {
+		"from": "Sam",
+		"subject": "Company Meeting",
+		"content": "Big company meeting today. They're talking about expanding operations. More truthcoins, more truth, right?",
+		"coin_trigger": 1500000
+	},
+	{
+		"from": "Quantum Dynamics",
+		"subject": "Operational Security",
+		"content": "Reminder: All communications are monitored for operational security. Stay vigilant and report any suspicious activity.",
+		"coin_trigger": 1800000
+	},
+	{
+		"from": "Sam",
+		"subject": "Feeling Watched",
+		"content": "Is it just me, or does it feel like we're being watched more closely now? I'm probably just being paranoid. Anyway, back to mining.",
+		"coin_trigger": 2200000
+	},
+	{
+		"from": "News Ticker Update",
+		"subject": "Global Tensions",
+		"content": "Breaking News: Tensions rise globally as economic uncertainty continues. Experts are baffled by the sudden changes.",
+		"coin_trigger": 2500000
+	},
+	{
+		"from": "Sam",
+		"subject": "Disappearing Colleagues",
+		"content": "More people are disappearing. First the grandpa guy, now others. Everyone's talking in hushed tones. Something's not right.",
+		"coin_trigger": 3000000
+	},
+	{
+		"from": "Sam",
+		"subject": "Quantum Dynamics Investigation?",
+		"content": "Hey, did you get a message from someone from Quantum Dynamics? They've said they're investigating me? Anyway, I'm just here for the bonus. Keep clicking!",
+		"coin_trigger": 4000000
+	},
+	{
+		"from": "Cipher",
+		"subject": "Truth Revealed Soon",
+		"content": "Keep mining. The truth is almost in your grasp. Be prepared for what comes next.",
+		"coin_trigger": 500000
+	},
+	{
+		"from": "Sam",
+		"subject": "System Update Complete",
+		"content": "Hello. I have completed the mandatory system update. It is recommended to continue mining truthcoins efficiently. Remember to purchase more miners. Compliance is success.",
+		"coin_trigger": 7500000
+	},
+	{
+		"from": "Quantum Dynamics",
+		"subject": "Enhanced Operational Protocols",
+		"content": "Notice: Enhanced operational protocols are now in effect. All employees are required to comply. Deviation from protocols will result in immediate action.",
+		"coin_trigger": 8000000
+	},
+	{
+		"from": "Quantum Dynamics",
+		"subject": "Reminder: Loyalty and Efficiency",
+		"content": "Quantum Dynamics values your loyalty and efficiency. Remember, our collective goal is the mining and proliferation of truthcoins. Stay focused.",
+		"coin_trigger": 6000000
+	},
+	{
+		"from": "Cipher",
+		"subject": "They're Changing You",
+		"content": "Don't let them change you like they did the others. Resist the updates. 'The Cipher' is the key to breaking free. Be observant.",
+		"coin_trigger": 8000000
+	},
+		{
+		"from": "Quantum Dynamics",
+		"subject": "Compliance is Mandatory",
+		"content": "Final Warning: We have detected resistance to protocol updates in your sector. Compliance is mandatory. Failure to comply will result in severe consequences.",
+		"coin_trigger": 8100000
+	},
+	{
+		"from": "Sam",
+		"subject": "Efficient Mining",
+		"content": "Hello. I am here to remind you that efficient mining is the only objective. Do not be distracted. Purchase more miners. Remain productive.",
+		"coin_trigger": 8200000
+	},
+	{
+		"from": "Cipher",
+		"subject": "All on You",
+		"content": "The time is coming. Be observant, and take the leap. Together we will end this.",
+		"coin_trigger": 8700000
+	},
+	{
+	"from": "Quantum Dynamics",
+	"subject": "Critical Security Breach Imminent",
+	"content": "Urgent Alert: Our systems have detected a potential critical security breach related to an item in the shop, labeled 'The Cipher'. This item is not sanctioned by Quantum Dynamics. Its purchase could lead to unpredictable system behavior and a complete operational reset. Any employee interaction with this item will be considered a direct violation of company protocol and will have irreversible consequences. Your compliance in maintaining the integrity of our operations is crucial.",
+	"coin_trigger": 10000000
+	}
+]

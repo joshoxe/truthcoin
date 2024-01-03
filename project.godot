@@ -18,12 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 UniqueIdGenerator="*res://unique_id_generator.gd"
+Player="*res://player.gd"
+MessageManager="*res://message_manager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
 
 [rendering]
 

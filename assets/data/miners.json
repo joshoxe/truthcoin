@@ -10,9 +10,105 @@
 	{
 		"miner_name": "Whiz Kid",
 		"description": "A bright, curious youngster armed with a laptop and a knack for algorithms.",
-		"base_cost": 80,
-		"earn_rate": 0.5,
+		"base_cost": 150,
+		"earn_rate": 1,
 		"cost_multiplier": 1.2,
 		"image_path": "res://assets/sprites/kid.png"
+	},
+	{
+		"miner_name": "Crypto Savant",
+		"description": "He dreams in code.",
+		"base_cost": 600,
+		"earn_rate": 3,
+		"cost_multiplier": 1.2,
+		"image_path": "res://assets/sprites/savant.png"
+	},
+	{
+		"miner_name": "Quantum Analyst",
+		"description": "A dedicated Quantum Dynamics employee, crunching data for truthcoin mining around the clock.",
+		"base_cost": 1000,
+		"earn_rate": 5,
+		"cost_multiplier": 1.2,
+		"image_path": "res://assets/sprites/analyst.png"
+	},
+	{
+		"miner_name": "Data Miner Bot",
+		"description": "A small but efficient bot, programmed to mine truthcoins tirelessly.",
+		"base_cost": 1500,
+		"earn_rate": 10,
+		"cost_multiplier": 1.3,
+		"image_path": "res://assets/sprites/bot.png"
+	},
+	{
+		"miner_name": "Encryption Specialist",
+		"description": "A master of codes and ciphers, unlocking the secrets of truthcoins faster than anyone else.",
+		"base_cost": 5000,
+		"earn_rate": 25,
+		"cost_multiplier": 1.3,
+		"image_path": "res://assets/sprites/specialist.png"
+	},
+	{
+		"miner_name": "AI Truth Processor",
+		"description": "Advanced AI technology that can process vast amounts of data, revealing truthcoins at an unprecedented rate.",
+		"base_cost": 12000,
+		"earn_rate": 60,
+		"cost_multiplier": 1.4,
+		"image_path": "res://assets/sprites/ai.png"
+	},
+	{
+		"miner_name": "Global Info Network",
+		"description": "An extensive network of informants and digital spies, gathering truthcoins from every corner of the globe.",
+		"base_cost": 30000,
+		"earn_rate": 150,
+		"cost_multiplier": 1.4,
+		"image_path": "res://assets/sprites/network.png"
+	},
+	{
+		"miner_name": "Quantum Core Reactor",
+		"description": "The pinnacle of Quantum Dynamics technology, mining truthcoins through quantum computation.",
+		"base_cost": 75000,
+		"earn_rate": 400,
+		"cost_multiplier": 1.5,
+		"image_path": "res://assets/sprites/network.png"
+	},
+	{
+		"miner_name": "Corporate Spy",
+		"description": "A covert operative gathering sensitive data, converting corporate secrets into truthcoins.",
+		"base_cost": 200000,
+		"earn_rate": 1000,
+		"cost_multiplier": 1.4,
+		"image_path": "res://assets/sprites/spy.png"
+	},
+	{
+		"miner_name": "Digital Prophet",
+		"description": "A visionary predicting and mining truthcoins through advanced algorithms and market predictions.",
+		"base_cost": 500000,
+		"earn_rate": 2500,
+		"cost_multiplier": 1.5,
+		"image_path": "res://assets/sprites/prophet.png"
+	},
+	{
+		"miner_name": "Quantum Supercomputer",
+		"description": "The ultimate in data processing technology, capable of mining truthcoins at near-light speeds.",
+		"base_cost": 1300000,
+		"earn_rate": 6000,
+		"cost_multiplier": 1.4,
+		"image_path": "res://assets/sprites/supercomputer.png"
+	},
+	{
+		"miner_name": "Global Surveillance Grid",
+		"description": "An all-seeing network, mining truthcoins by monitoring data flows across the entire world.",
+		"base_cost": 3300000,
+		"earn_rate": 15000,
+		"cost_multiplier": 1.5,
+		"image_path": "res://assets/sprites/global.png"
+	},
+	{
+		"miner_name": "Cipher",
+		"description": "The mysterious entity behind the messages. Unlocks the final truth and resets the system.",
+		"base_cost": 10000000,
+		"earn_rate": 0,
+		"cost_multiplier": 0,
+		"image_path": "res://assets/sprites/cipher.png"
 	}
 ]

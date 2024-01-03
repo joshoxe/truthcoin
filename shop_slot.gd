@@ -14,17 +14,17 @@ func _ready():
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	shop_manager.miner_reset.connect(on_miner_reset)
 	player = get_tree().root.get_node("Main/Player")
-	player.player_loaded.connect(on_player_loaded)
+	Player.player_loaded.connect(on_player_loaded)
 	
 func on_miner_reset(miner: Miner):
 	hide_miner()
 	
 func on_player_loaded(player: Player):
 	var miner = get_miner()
-	if player.total_coins > miner.base_cost:
+	if Player.total_coins > miner.base_cost:
 		show_miner()
 		
-	if player.current_coins > miner.base_cost:
+	if Player.current_coins > miner.base_cost:
 		enable_slot()
 	
 func check_player_can_afford(coins: int):
@@ -55,7 +55,7 @@ func show_miner():
 	set_per_second_label(miner.earn_rate)
 	
 func hide_miner():
-	set_miner_image("")
+	remove_miner_image()
 	set_name_label("???")
 	set_description_label("??????")
 	hide_cost_label()
@@ -67,6 +67,9 @@ func on_buy_button_pressed():
 
 func set_miner_image(path: String):
 	$MinerImage.texture = load(path)
+	
+func remove_miner_image():
+	$MinerImage.texture = null
 	
 func set_name_label(name: String):
 	$MinerName.text = name
