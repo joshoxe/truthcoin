@@ -4,7 +4,8 @@ var events = []
 var active_events = []
 signal new_event(event: Event)
 signal event_ended(event: Event)
-var event_check_interval = 10.0  # Time in seconds between each event check
+signal load_event(event: Event)
+var event_check_interval = randf_range(30.0, 120.0)
 var event_timer = Timer.new()
 
 func _ready():
@@ -24,8 +25,12 @@ func _on_event_timer_timeout():
 
 func trigger_random_event():
 	var event = select_random_event()
-	if event in active_events:
-		return
+
+	for active_event in active_events:
+		if active_event.event_name == event.event_name:
+			return
+
+	print('starting event ', event.event_name)
 	apply_event(event)
 	# Set a timer to end the event
 	var timer = Timer.new()
@@ -35,6 +40,8 @@ func trigger_random_event():
 	add_child(timer)
 	timer.start()
 	active_events.append(event)
+	print('appended')
+	print(active_events)
 	new_event.emit(event)
 
 func load_events_from_json(path):
@@ -70,12 +77,15 @@ func _on_event_timeout(event):
 	event_ended.emit(event)
 
 func apply_event(event):
+	var game_manager = get_tree().root.get_node("Main/GameManager")
 	for effect in event.effects:
 		match effect.key:
 			"cps_boost":
 				apply_cps_boost(effect.value)
 			"miner_price":
 				apply_miner_price(effect.value)
+			"quantum_anomaly":
+				game_manager.apply_quantum_anomaly()
 
 func apply_cps_boost(value):
 	var game_manager = get_tree().root.get_node("Main/GameManager")
@@ -87,12 +97,16 @@ func apply_miner_price(value):
 	
 
 func revert_event(event):
+	var game_manager = get_tree().root.get_node("Main/GameManager")
 	for effect in event.effects:
 		match effect.key:
 			"cps_boost":
 				revert_cps_boost(effect.value)
 			"miner_price":
 				revert_miner_price(effect.value)
+			"quantum_anomaly":
+				game_manager.revert_quantum_anomaly()
+				
 
 func revert_cps_boost(value):
 	var game_manager = get_tree().root.get_node("Main/GameManager")
@@ -114,3 +128,41 @@ func select_random_event():
 		probability -= event.probability
 		if (probability <= 0):
 			return event
+
+
+func save():
+	var active_events_data = []
+	print('looping active events')
+	for event in active_events:
+		print(event.event_name)
+		var event_string = event.save()
+		print(event_string)
+		active_events_data.append(event_string)
+
+	return {
+		"active_events": active_events_data
+	}
+
+func load(active_events_data):
+	for event_data in active_events_data['active_events']:
+		var event = Event.new()
+		event.load(event_data)
+		var timer = Timer.new()
+		timer.wait_time = event.duration
+		timer.one_shot = true
+		timer.timeout.connect(_on_event_timeout.bind(event))
+		add_child(timer)
+		timer.start()
+		active_events.append(event)
+		print('emitting for')
+		print(event.event_name)
+		call_deferred('emit_event_loaded', event)
+		
+func emit_event_loaded(event):
+	load_event.emit(event)
+
+func reset():
+	for event in active_events:
+		revert_event(event)
+		event_ended.emit(event)
+	active_events.clear()

@@ -47,6 +47,7 @@ func set_miner_id(new_miner_id: int):
 	miner_id = new_miner_id
 	
 func show_miner():
+	slot_visible = true
 	var miner = get_miner()
 	set_miner_image(miner.image_path)
 	set_name_label(miner.miner_name)

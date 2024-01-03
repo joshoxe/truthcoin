@@ -26,6 +26,7 @@ func _ready():
 	MessageManager.new_message.connect(on_new_message)
 	EventManager.new_event.connect(on_new_event)
 	EventManager.event_ended.connect(on_event_ended)
+	EventManager.load_event.connect(on_load_event)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	game_manager = get_tree().root.get_node("Main/GameManager")
 	shop_manager.miner_updated.connect(on_miner_updated)
@@ -50,6 +51,9 @@ func on_new_event(event: Event):
 	add_event_popup(event.description)
 	add_buff_text(event)
 
+func on_load_event(event: Event):
+	add_buff_text(event)
+
 func add_buff_text(event: Event):
 	var buff_label_scene = buff_label.instantiate()
 	if event.buff_effect == "positive":
@@ -66,8 +70,6 @@ func remove_buff_text(event: Event):
 	while container.get_child_count() > i:
 		i += 1
 		var child = container.get_child(0)
-		print(child)
-		print(child.text)
 		if child.text == event.buff_text:
 			container.remove_child(child)
 			child.queue_free()
@@ -133,8 +135,10 @@ func on_miner_purchased(miner_id: int):
 func on_miner_updated(miner):
 	for slot in slots:
 		if slot.miner_id == miner.id:
-			slot.set_cost_label(miner.base_cost)
-			slot.enable_buy_button()
+			if slot.slot_visible:
+				slot.set_cost_label(miner.base_cost)
+				slot.set_per_second_label(miner.earn_rate)
+				slot.enable_buy_button()
 			return
 	
 func on_inbox_button_clicked():

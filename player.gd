@@ -39,8 +39,6 @@ func load(player_data):
 		purchased_miners.append(miner)
 
 	for i in player_data.keys():
-		print("setting %s" % i)
-		print(player_data[i])
 		set(i, player_data[i])
 
 	call_deferred("emit_player_loaded")

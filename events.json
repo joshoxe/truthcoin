@@ -1,7 +1,7 @@
 [
 	{
-		"name": "Tech Boom",
-		"description": "All miners operate 20% more efficiently for the next minute!",
+		"event_name": "Tech Boom",
+		"description": "All your current miners operate 20% more efficiently for the next minute!",
 		"end_text": "Miners no longer operating 20% more efficiently",
 		"buff_text": "20% miner efficiency",
 		"buff_effect": "positive",
@@ -12,19 +12,19 @@
 		"probability": 0.05
 	},
 	{
-		"name": "Data Rush",
-		"description":"A Data Rush is happening! All miners are supercharged for the next 60 minutes!",
+		"event_name": "Data Rush",
+		"description":"A Data Rush is happening! All your current miners are supercharged for the next 2 minutes!",
 		"end_text": "The data rush has ended",
 		"buff_text": "Data rush",
 		"buff_effect": "positive",
 		"effects": [{
 			"key": "cps_boost", "value": 1.5
 		}],
-		"duration": 30,
+		"duration": 120,
 		"probability": 0.005
 	},
 	{
-		"name": "Encryption Breakthrough",
+		"event_name": "Encryption Breakthrough",
 		"description":"Breakthrough in encryption! All miners are cheaper for a short period",
 		"end_text": "Miner prices have normalised",
 		"buff_text": "Cheap miners",
@@ -36,8 +36,8 @@
 		"probability": 0.05
 	},
 	{
-		"name": "Hack Attack",
-		"description": "We're being hacked! Miners are less efficient than usual!",
+		"event_name": "Hack Attack",
+		"description": "We're being hacked! Your current miners are less efficient than usual!",
 		"end_text": "We've found the hacker, miner efficiency returned to normal",
 		"buff_text": "Hacked",
 		"buff_effect": "negative",
@@ -48,7 +48,7 @@
 		"probability": 0.05
 	},
 	{
-		"name": "Market Fluctuation",
+		"event_name": "Market Fluctuation",
 		"description":"A group of people on reddit are interfering with stock prices. Miners cost more than usual.",
 		"end_text": "Miner prices have normalised",
 		"buff_text": "Expensive miners",
@@ -58,5 +58,17 @@
 		}],
 		"duration": 60,
 		"probability": 0.05
+	},
+	{
+		"event_name": "Quantum Anomaly",
+		"description": "A strange quantum anomaly has temporarily altered the efficiency of all miners in the shop. They may be more efficient than usual",
+		"end_text": "The quantum anomaly has stabilized, and miner efficiency in the shop has returned to normal.",
+		"buff_text": "Quantum Anomaly",
+		"buff_effect": "positive",
+		"effects": [{
+			"key": "quantum_anomaly", "value": 0.7
+		}],
+		"duration": 60,
+		"probability": 0.01
 	},
 ]

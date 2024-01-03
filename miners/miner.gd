@@ -5,6 +5,7 @@ var miner_name: String
 var description: String
 var base_cost: int
 var earn_rate: float
+var original_earn_rate: float
 var cost_multiplier: float
 var image_path: String
 
@@ -16,6 +17,7 @@ func save():
 		"description": description,
 		"base_cost": base_cost,
 		"earn_rate": earn_rate,
+		"original_earn_rate": original_earn_rate,
 		"cost_multiplier": cost_multiplier,
 		"image_path": image_path
 	}

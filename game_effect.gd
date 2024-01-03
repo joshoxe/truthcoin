@@ -1,14 +1,16 @@
 class_name GameEffect extends Node
 
 var key: String
-var value: Variant
+var value: float
 
 func load(data):
-  key = data.key
-  value = data.value
+	print('effect')
+	print(data)
+	key = data.key
+	value = data.value
 
 func save():
-  return {
-	key: key,
-	value: value
-  }
+	return {
+		"key": key,
+		"value": value
+	}

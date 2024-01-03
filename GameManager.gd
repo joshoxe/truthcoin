@@ -12,14 +12,16 @@ var cps_boosts = [1.0]
 func _ready():
 	MessageManager.load_messages_from_json()
 	MessageManager.new_message.connect(on_new_message)
+	EventManager.new_event.connect(on_new_event)
+	EventManager.event_ended.connect(on_event_ended)
 		
 	var player_data = await get_tree().root.get_node("Main/SaveGame").get_player_data()
 	var shop_data = await get_tree().root.get_node("Main/SaveGame").get_shop_data()
 	var messages_data = await get_tree().root.get_node("Main/SaveGame").get_messages_data()
+	var events_data = await get_tree().root.get_node("Main/SaveGame").get_events_data()
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	var main_hud = get_tree().root.get_node("Main/MainHUD")
 	if player_data != null:
-		print(player_data)
 		Player.load(player_data)
 		
 	if shop_data != null:
@@ -29,6 +31,9 @@ func _ready():
 
 	if messages_data != null:
 		MessageManager.load(messages_data)
+
+	if events_data != null:
+		EventManager.load(events_data)
 
 	var clickable_coin = get_tree().root.get_node("Main/Container/ClickableCoin")
 	clickable_coin.clicked.connect(on_clickable_coin_clicked)
@@ -47,12 +52,21 @@ func on_wipe_save():
 	var save_game = get_tree().root.get_node("Main/SaveGame")
 	var shop_manager = get_tree().root.get_node("Main/ShopManager")
 	UniqueIdGenerator.reset()
-	await save_game.wipe_save()
 	MessageManager.reset()
+	EventManager.reset()
+	await save_game.wipe_save()
 	await shop_manager.reset()
 	await Player.reset()
 	increase_coins(0)
-	
+
+func on_new_event(event: Event):
+	print('saving')
+	print(event.event_name)
+	save_events()
+
+func on_event_ended(event: Event):
+	save_events()
+
 func on_miner_updated(_miner: Miner):
 	save_shop()
 	
@@ -130,6 +144,28 @@ func apply_miner_price(price: float):
 		shop_manager.miner_updated.emit(miner)
 		
 	save_shop()
+	
+func apply_miner_earn_rate(rate: float):
+	for miner in shop_manager.shop_miners:
+		miner.earn_rate *= rate
+		shop_manager.miner_updated.emit(miner)
+
+func apply_quantum_anomaly():
+	for miner in shop_manager.shop_miners:
+		var random_factor = randf_range(0.8, 1.2)
+		miner.earn_rate *= random_factor
+		shop_manager.miner_updated.emit(miner)
+	
+
+func revert_quantum_anomaly():
+	for miner in shop_manager.shop_miners:
+		miner.earn_rate = miner.original_earn_rate
+		shop_manager.miner_updated.emit(miner)
+
+func revert_miner_earn_rate(rate: float):
+	for miner in shop_manager.shop_miners:
+		miner.earn_rate /= rate
+		shop_manager.miner_updated.emit(miner)
 
 func revert_cps_boost(boost: float):
 	cps_boosts.erase(boost)
@@ -153,3 +189,6 @@ func save_shop():
 	
 func save_messages():
 	get_tree().root.get_node("Main/SaveGame").save_messages()
+
+func save_events():
+	get_tree().root.get_node("Main/SaveGame").save_events()
