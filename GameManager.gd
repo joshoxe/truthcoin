@@ -7,6 +7,8 @@ signal miner_purchase_success(miner: Miner)
 signal per_second_rate_updated(rate: float)
 var rng = RandomNumberGenerator.new()
 
+var cps_boosts = [1.0]
+
 func _ready():
 	MessageManager.load_messages_from_json()
 	MessageManager.new_message.connect(on_new_message)
@@ -59,6 +61,9 @@ func calculate_per_second_rate():
 
 	for purchased_miner in Player.purchased_miners:
 		Player.per_second_rate += purchased_miner.earn_rate
+		
+	for cps_boost in cps_boosts:
+		Player.per_second_rate *= cps_boost
 	
 	per_second_rate_updated.emit(Player.per_second_rate)
 
@@ -116,12 +121,26 @@ func spawn_falling_coin():
 	get_tree().root.get_node("Main").add_child(falling_coin)
 
 func apply_cps_boost(boost: float):
-	Player.per_second_rate *= boost
-	per_second_rate_updated.emit(Player.per_second_rate)
+	cps_boosts.append(boost)
+	calculate_per_second_rate()
+
+func apply_miner_price(price: float):
+	for miner in shop_manager.shop_miners:
+		miner.base_cost *= price
+		shop_manager.miner_updated.emit(miner)
+		
+	save_shop()
 
 func revert_cps_boost(boost: float):
-	Player.per_second_rate /= boost
-	per_second_rate_updated.emit(Player.per_second_rate)
+	cps_boosts.erase(boost)
+	calculate_per_second_rate()
+
+func revert_miner_price(price: float):
+	for miner in shop_manager.shop_miners:
+		miner.base_cost /= price
+		shop_manager.miner_updated.emit(miner)
+		
+	save_shop()
 	
 func on_new_message(message: Message):
 	save_messages()

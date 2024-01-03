@@ -74,10 +74,16 @@ func apply_event(event):
 		match effect.key:
 			"cps_boost":
 				apply_cps_boost(effect.value)
+			"miner_price":
+				apply_miner_price(effect.value)
 
 func apply_cps_boost(value):
 	var game_manager = get_tree().root.get_node("Main/GameManager")
 	game_manager.apply_cps_boost(value)
+
+func apply_miner_price(value):
+	var game_manager = get_tree().root.get_node("Main/GameManager")
+	game_manager.apply_miner_price(value)
 	
 
 func revert_event(event):
@@ -85,10 +91,16 @@ func revert_event(event):
 		match effect.key:
 			"cps_boost":
 				revert_cps_boost(effect.value)
+			"miner_price":
+				revert_miner_price(effect.value)
 
 func revert_cps_boost(value):
 	var game_manager = get_tree().root.get_node("Main/GameManager")
 	game_manager.revert_cps_boost(value)
+
+func revert_miner_price(value):
+	var game_manager = get_tree().root.get_node("Main/GameManager")
+	game_manager.revert_miner_price(value)
 
 func get_event_trigger_probability():
 	var probability = 0

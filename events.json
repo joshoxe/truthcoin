@@ -10,5 +10,53 @@
 		}],
 		"duration": 60,
 		"probability": 0.05
-	}
+	},
+	{
+		"name": "Data Rush",
+		"description":"A Data Rush is happening! All miners are supercharged for the next 60 minutes!",
+		"end_text": "The data rush has ended",
+		"buff_text": "Data rush",
+		"buff_effect": "positive",
+		"effects": [{
+			"key": "cps_boost", "value": 1.5
+		}],
+		"duration": 30,
+		"probability": 0.005
+	},
+	{
+		"name": "Encryption Breakthrough",
+		"description":"Breakthrough in encryption! All miners are cheaper for a short period",
+		"end_text": "Miner prices have normalised",
+		"buff_text": "Cheap miners",
+		"buff_effect": "positive",
+		"effects": [{
+			"key": "miner_price", "value": 0.7
+		}],
+		"duration": 60,
+		"probability": 0.05
+	},
+	{
+		"name": "Hack Attack",
+		"description": "We're being hacked! Miners are less efficient than usual!",
+		"end_text": "We've found the hacker, miner efficiency returned to normal",
+		"buff_text": "Hacked",
+		"buff_effect": "negative",
+		"effects": [{
+			"key": "cps_boost", "value": 0.6
+		}],
+		"duration": 60,
+		"probability": 0.05
+	},
+	{
+		"name": "Market Fluctuation",
+		"description":"A group of people on reddit are interfering with stock prices. Miners cost more than usual.",
+		"end_text": "Miner prices have normalised",
+		"buff_text": "Expensive miners",
+		"buff_effect": "negative",
+		"effects": [{
+			"key": "miner_price", "value": 1.3
+		}],
+		"duration": 60,
+		"probability": 0.05
+	},
 ]
