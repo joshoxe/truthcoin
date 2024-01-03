@@ -14,7 +14,7 @@ func on_message_read(message):
 	calculate_notifications()
 
 func calculate_notifications():
-	if MessageManager.inbox.size() == MessageManager.read.size():
+	if MessageManager.inbox.size() <= MessageManager.read.size():
 		visible = false
 	else:
 		visible = true
