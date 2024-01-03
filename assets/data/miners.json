@@ -78,7 +78,7 @@
 		"earn_rate": 400,
 		"original_earn_rate": 400,
 		"cost_multiplier": 1.5,
-		"image_path": "res://assets/sprites/network.png"
+		"image_path": "res://assets/sprites/quantum.png"
 	},
 	{
 		"miner_name": "Corporate Spy",
