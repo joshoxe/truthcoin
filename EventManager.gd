@@ -2,6 +2,7 @@ extends Node
 
 var events = []
 var active_events = []
+signal show_event_coin
 signal new_event(event: Event)
 signal event_ended(event: Event)
 signal load_event(event: Event)
@@ -21,7 +22,7 @@ func _on_event_timer_timeout():
 	var random_chance = randf()
 	var event_probability = get_event_trigger_probability()
 	if (random_chance < event_probability):
-		trigger_random_event()
+		show_event_coin.emit()
 	event_timer.wait_time = randf_range(10.0, 120.0)
 
 func trigger_random_event():
@@ -29,6 +30,7 @@ func trigger_random_event():
 
 	for active_event in active_events:
 		if active_event.event_name == event.event_name:
+			trigger_random_event()
 			return
 
 	print('starting event ', event.event_name)
@@ -87,6 +89,8 @@ func apply_event(event):
 				apply_miner_price(effect.value)
 			"quantum_anomaly":
 				game_manager.apply_quantum_anomaly()
+			"cursor_clicks":
+				game_manager.apply_cursor_click_boost(effect.value)
 
 func apply_cps_boost(value):
 	var game_manager = get_tree().root.get_node("Main/GameManager")
@@ -107,6 +111,8 @@ func revert_event(event):
 				revert_miner_price(effect.value)
 			"quantum_anomaly":
 				game_manager.revert_quantum_anomaly()
+			"cursor_clicks":
+				game_manager.revert_cursor_click_boost(effect.value)
 				
 
 func revert_cps_boost(value):

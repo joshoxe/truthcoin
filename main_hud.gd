@@ -9,6 +9,7 @@ var slots = []
 var message_slots = []
 var event_popup = preload("res://random_event_popup.tscn")
 var buff_label = preload("res://buff_label.tscn")
+var event_coin = preload("res://event_coin.tscn")
 
 var SHOP_SLOT_X = 1140
 var SHOP_SLOT_Y = 150
@@ -27,6 +28,7 @@ func _ready():
 	EventManager.new_event.connect(on_new_event)
 	EventManager.event_ended.connect(on_event_ended)
 	EventManager.load_event.connect(on_load_event)
+	EventManager.show_event_coin.connect(on_show_event_coin)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	game_manager = get_tree().root.get_node("Main/GameManager")
 	shop_manager.miner_updated.connect(on_miner_updated)
@@ -42,6 +44,18 @@ func _ready():
 		
 	for message in MessageManager.inbox:
 		create_new_message_scene(message)
+		
+func on_show_event_coin():
+	var event_coin_scene = event_coin.instantiate()
+	var x = randi_range(0, 920)
+	var y = randi_range(0, 1000)
+	event_coin_scene.position = Vector2(x, y)
+	add_child(event_coin_scene)
+
+	event_coin_scene.clicked.connect(on_event_coin_clicked.bind(event_coin_scene))
+
+func on_event_coin_clicked(coin_scene):
+	EventManager.trigger_random_event()
 		
 func on_event_ended(event: Event):
 	add_event_popup(event.end_text)

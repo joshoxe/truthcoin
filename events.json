@@ -37,8 +37,8 @@
 	},
 	{
 		"event_name": "Hack Attack",
-		"description": "We're being hacked! Your current miners are less efficient than usual!",
-		"end_text": "We've found the hacker, miner efficiency returned to normal",
+		"description": "Tapping the coin has triggered an Intruder Alert! We're being hacked, causing your miners to be less efficient!",
+		"end_text": "Intruder neutralized; miner efficiency is restored.",
 		"buff_text": "Hacked",
 		"buff_effect": "negative",
 		"effects": [{
@@ -70,5 +70,17 @@
 		}],
 		"duration": 60,
 		"probability": 0.01
+	},
+		{
+		"event_name": "Click Rate Increase",
+		"description": "Your cursor is going wild! Cursor clicks are now worth 10x more",
+		"end_text": "Cursor clicks have returned to normal",
+		"buff_text": "8x cursor clicks",
+		"buff_effect": "positive",
+		"effects": [{
+			"key": "cursor_clicks", "value": 10
+		}],
+		"duration": 60,
+		"probability": 0.31
 	},
 ]

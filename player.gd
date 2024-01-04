@@ -5,6 +5,7 @@ var current_coins = 0
 var fractional_coins = 0.0
 var per_second_rate = 0.0
 var purchased_miners: Array[Miner]
+var cursor_click_boost = 1
 
 signal player_loaded(player: Player)
 
@@ -21,6 +22,7 @@ func save():
 		"fractional_coins": fractional_coins,
 		"purchased_miners": miner_data,
 		"per_second_rate": per_second_rate,
+		"cursor_click_boost": cursor_click_boost
 	}
 	
 func reset():

@@ -46,7 +46,7 @@ func _ready():
 	$CoinTimer.start()
 	
 func on_clickable_coin_clicked():
-	increase_coins(1)
+	increase_coins(1 * Player.cursor_click_boost)
 
 func on_wipe_save():
 	var save_game = get_tree().root.get_node("Main/SaveGame")
@@ -155,7 +155,12 @@ func apply_quantum_anomaly():
 		var random_factor = randf_range(0.8, 1.2)
 		miner.earn_rate *= random_factor
 		shop_manager.miner_updated.emit(miner)
-	
+
+func apply_cursor_click_boost(boost: int):
+	Player.cursor_click_boost = boost
+
+func revert_cursor_click_boost(boost: int):
+	Player.cursor_click_boost = 1
 
 func revert_quantum_anomaly():
 	for miner in shop_manager.shop_miners:
