@@ -75,7 +75,7 @@
 		"event_name": "Click Rate Increase",
 		"description": "Your cursor is going wild! Cursor clicks are now worth 10x more",
 		"end_text": "Cursor clicks have returned to normal",
-		"buff_text": "8x cursor clicks",
+		"buff_text": "10x cursor clicks",
 		"buff_effect": "positive",
 		"effects": [{
 			"key": "cursor_clicks", "value": 10
