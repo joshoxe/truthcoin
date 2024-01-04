@@ -144,7 +144,13 @@ func apply_miner_price(price: float):
 		shop_manager.miner_updated.emit(miner)
 		
 	save_shop()
-	
+
+func apply_grandpa_cps(boost):
+	for miner in shop_manager.shop_miners:
+		if miner.miner_name == "Gramps Crypto Rig":
+			miner.earn_rate = boost
+			shop_manager.miner_updated.emit(miner)
+
 func apply_miner_earn_rate(rate: float):
 	for miner in shop_manager.shop_miners:
 		miner.earn_rate *= rate
@@ -158,6 +164,12 @@ func apply_quantum_anomaly():
 
 func apply_cursor_click_boost(boost: int):
 	Player.cursor_click_boost = boost
+
+func revert_grandpa_cps(boost):
+	for miner in shop_manager.shop_miners:
+		if miner.miner_name == "Gramps Crypto Rig":
+			miner.earn_rate = miner.original_earn_rate
+			shop_manager.miner_updated.emit(miner)
 
 func revert_cursor_click_boost(boost: int):
 	Player.cursor_click_boost = 1

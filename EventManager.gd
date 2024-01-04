@@ -91,6 +91,8 @@ func apply_event(event):
 				game_manager.apply_quantum_anomaly()
 			"cursor_clicks":
 				game_manager.apply_cursor_click_boost(effect.value)
+			"grandpa_cps":
+				game_manager.apply_grandpa_cps(effect.value)
 
 func apply_cps_boost(value):
 	var game_manager = get_tree().root.get_node("Main/GameManager")
@@ -113,6 +115,8 @@ func revert_event(event):
 				game_manager.revert_quantum_anomaly()
 			"cursor_clicks":
 				game_manager.revert_cursor_click_boost(effect.value)
+			"grandpa_cps":
+				game_manager.revert_grandpa_cps(effect.value)
 				
 
 func revert_cps_boost(value):

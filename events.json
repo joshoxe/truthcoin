@@ -71,7 +71,7 @@
 		"duration": 60,
 		"probability": 0.01
 	},
-		{
+	{
 		"event_name": "Click Rate Increase",
 		"description": "Your cursor is going wild! Cursor clicks are now worth 10x more",
 		"end_text": "Cursor clicks have returned to normal",
@@ -83,4 +83,28 @@
 		"duration": 60,
 		"probability": 0.31
 	},
+	{
+		"event_name": "Click Frenzy",
+		"description": "Psst! We modded your cursor to click 777x faster!!",
+		"end_text": "Cursor clicks have returned to normal",
+		"buff_text": "Modded cursor",
+		"buff_effect": "positive",
+		"effects": [{
+			"key": "cursor_clicks", "value": 777
+		}],
+		"duration": 20,
+		"probability": 0.03
+	},
+	{
+		"event_name": "Care home coffee",
+		"description": "The care home has given out free coffee, those grandpas are hyped!",
+		"end_text": "The care home has run out of coffee",
+		"buff_text": "Caffeinated grandpas",
+		"buff_effect": "positive",
+		"effects": [{
+			"key": "grandpa_cps", "value": 2
+		}],
+		"duration": 60,
+		"probability": 0.05
+	}
 ]
