@@ -6,7 +6,7 @@ signal show_event_coin
 signal new_event(event: Event)
 signal event_ended(event: Event)
 signal load_event(event: Event)
-var event_check_interval = randf_range(10.0, 120.0)
+var event_check_interval = randf_range(10.0, 60.0)
 var event_timer = Timer.new()
 
 func _ready():
@@ -23,7 +23,7 @@ func _on_event_timer_timeout():
 	var event_probability = get_event_trigger_probability()
 	if (random_chance < event_probability):
 		show_event_coin.emit()
-	event_timer.wait_time = randf_range(10.0, 120.0)
+	event_timer.wait_time = randf_range(10.0, 60.0)
 
 func trigger_random_event():
 	var event = select_random_event()

@@ -7,7 +7,15 @@ var amount_earned_label = preload('res://amount_earned_label.tscn')
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	input_event.connect(on_input_event)
+	mouse_entered.connect(on_mouse_entered)
+	mouse_exited.connect(on_mouse_exited)
 	$CoinSprite.animation_finished.connect(on_coin_sprite_animation_finished)
+
+func on_mouse_entered():
+	Input.set_default_cursor_shape(2)
+
+func on_mouse_exited():
+	Input.set_default_cursor_shape(0)
 	
 func on_input_event(viewport:Node, event:InputEvent, shape_idx:int):
 	if event is InputEventMouseButton and event.pressed == true and event.button_mask == 1:
