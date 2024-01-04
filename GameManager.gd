@@ -152,7 +152,7 @@ func apply_miner_earn_rate(rate: float):
 
 func apply_quantum_anomaly():
 	for miner in shop_manager.shop_miners:
-		var random_factor = randf_range(0.8, 1.2)
+		var random_factor = randf_range(0.5, 2.0)
 		miner.earn_rate *= random_factor
 		shop_manager.miner_updated.emit(miner)
 
