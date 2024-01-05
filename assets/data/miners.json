@@ -118,11 +118,11 @@
 	},
 	{
 		"miner_name": "Cipher",
-		"description": "The mysterious entity behind the messages. Unlocks the final truth and resets the system.",
+		"description": "New Game+. Earn 0.02% CPS per coin left after purchasing.",
 		"base_cost": 10000000,
 		"earn_rate": 0,
 		"original_earn_rate": 0,
-		"cost_multiplier": 0,
+		"cost_multiplier": 1,
 		"image_path": "res://assets/sprites/cipher.png"
 	}
 ]

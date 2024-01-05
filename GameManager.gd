@@ -5,6 +5,7 @@ var shop_manager: Node
 signal coins_updated(coins: int)
 signal miner_purchase_success(miner: Miner)
 signal per_second_rate_updated(rate: float)
+signal new_game_coins_updated()
 var rng = RandomNumberGenerator.new()
 
 var cps_boosts = [1.0]
@@ -44,6 +45,7 @@ func _ready():
 	shop_manager.miner_updated.connect(on_miner_updated)
 
 	$CoinTimer.start()
+
 func on_clickable_coin_clicked():
 	increase_coins(1 * Player.cursor_click_boost)
 
@@ -75,6 +77,8 @@ func calculate_per_second_rate():
 		
 	for cps_boost in cps_boosts:
 		Player.per_second_rate *= cps_boost
+
+	Player.per_second_rate += Player.per_second_rate * (0.02 * Player.new_game_coins)
 	
 	per_second_rate_updated.emit(Player.per_second_rate)
 
@@ -107,12 +111,27 @@ func remove_coins(amount: int):
 func add_purchased_miner(miner: Miner):
 	if Player.current_coins < miner.base_cost:
 		return
+		
+	if miner.miner_name == "Cipher":
+		handle_end_game(miner)
+		return
 
 	remove_coins(miner.base_cost)
 	Player.purchased_miners.append(miner)
 	shop_manager.miner_purchased(miner.id)
 	miner_purchase_success.emit(miner)
 	calculate_per_second_rate()
+	save_player()
+	
+func handle_end_game(miner):
+	var current_coins = Player.current_coins
+
+	on_wipe_save()
+	print(miner.base_cost)
+	print(current_coins)
+	print(current_coins - miner.base_cost)
+	Player.new_game_coins += (current_coins - miner.base_cost)
+	new_game_coins_updated.emit()
 	save_player()
 
 func find_owned_miners_of_name(miner_name: String):
