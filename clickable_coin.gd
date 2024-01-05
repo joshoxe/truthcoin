@@ -33,7 +33,6 @@ func show_earned_amount(pos):
 	# spawn a label with the amount earned
 	var label = amount_earned_label.instantiate()
 	label.position = pos + Vector2(0, -50)
-	print(1*Player.cursor_click_boost)
 	label.text = "+%d" % (1 * Player.cursor_click_boost)
 	var main_scene = get_tree().root.get_node("Main")
 	main_scene.add_child(label)

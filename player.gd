@@ -46,6 +46,5 @@ func load(player_data):
 	call_deferred("emit_player_loaded")
 	
 func emit_player_loaded():
-	print("Emitting player_loaded signal")
 	player_loaded.emit(self)
 	

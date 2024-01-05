@@ -60,8 +60,6 @@ func on_wipe_save():
 	increase_coins(0)
 
 func on_new_event(event: Event):
-	print('saving')
-	print(event.event_name)
 	save_events()
 
 func on_event_ended(event: Event):

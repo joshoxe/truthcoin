@@ -33,7 +33,6 @@ func trigger_random_event():
 			trigger_random_event()
 			return
 
-	print('starting event ', event.event_name)
 	apply_event(event)
 	# Set a timer to end the event
 	var timer = Timer.new()
@@ -43,8 +42,6 @@ func trigger_random_event():
 	add_child(timer)
 	timer.start()
 	active_events.append(event)
-	print('appended')
-	print(active_events)
 	new_event.emit(event)
 
 func load_events_from_json(path):
@@ -143,11 +140,8 @@ func select_random_event():
 
 func save():
 	var active_events_data = []
-	print('looping active events')
 	for event in active_events:
-		print(event.event_name)
 		var event_string = event.save()
-		print(event_string)
 		active_events_data.append(event_string)
 
 	return {
@@ -165,8 +159,6 @@ func load(active_events_data):
 		add_child(timer)
 		timer.start()
 		active_events.append(event)
-		print('emitting for')
-		print(event.event_name)
 		call_deferred('emit_event_loaded', event)
 		
 func emit_event_loaded(event):

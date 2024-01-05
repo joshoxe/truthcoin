@@ -20,7 +20,6 @@ func load(data):
 	effects = []
 	for effect_data in data["effects"]:
 		var effect = GameEffect.new()
-		print('loading effect')
 		effect.load(effect_data)
 		effects.append(effect)
 
