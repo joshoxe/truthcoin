@@ -44,7 +44,6 @@ func _ready():
 	shop_manager.miner_updated.connect(on_miner_updated)
 
 	$CoinTimer.start()
-	
 func on_clickable_coin_clicked():
 	increase_coins(1 * Player.cursor_click_boost)
 

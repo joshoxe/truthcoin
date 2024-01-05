@@ -72,12 +72,6 @@
 		"coin_trigger": 2200000
 	},
 	{
-		"from": "News Ticker Update",
-		"subject": "Global Tensions",
-		"content": "Breaking News: Tensions rise globally as economic uncertainty continues. Experts are baffled by the sudden changes.",
-		"coin_trigger": 2500000
-	},
-	{
 		"from": "Sam",
 		"subject": "Disappearing Colleagues",
 		"content": "More people are disappearing. First the grandpa guy, now others. Everyone's talking in hushed tones. Something's not right.",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cc2mhqigqgf63"]
+[gd_scene load_steps=17 format=3 uid="uid://cc2mhqigqgf63"]
 
 [ext_resource type="Texture2D" uid="uid://btfq4a2yk5sdo" path="res://assets/UI/sidebar4.png" id="1_umi2u"]
 [ext_resource type="Script" path="res://main_hud.gd" id="1_yao43"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" path="res://message_dialogue.tscn" id="13_acjie"]
 [ext_resource type="Texture2D" uid="uid://b5v28uiuc8md1" path="res://assets/UI/notif.png" id="14_8n1nj"]
 [ext_resource type="Script" path="res://InboxNotification.gd" id="15_8vgft"]
+[ext_resource type="PackedScene" uid="uid://b8l7wcjsflrbp" path="res://news_ticker.tscn" id="16_3ynjc"]
 
 [node name="MainHUD" type="CanvasLayer"]
 script = ExtResource("1_yao43")
@@ -202,3 +203,9 @@ vertical_alignment = 1
 offset_left = 848.0
 offset_right = 1088.0
 offset_bottom = 1088.0
+
+[node name="NewsTicker" parent="." instance=ExtResource("16_3ynjc")]
+offset_left = 136.0
+offset_top = 816.0
+offset_right = 895.0
+offset_bottom = 956.0
