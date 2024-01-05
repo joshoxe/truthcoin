@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8l7wcjsflrbp"]
+
+[ext_resource type="Texture2D" uid="uid://bfvcjimldxy4p" path="res://assets/UI/news_ticker.png" id="1_pu2jt"]
+[ext_resource type="Script" path="res://news_ticker.gd" id="2_3q5nu"]
+[ext_resource type="FontFile" uid="uid://bnqwh70ic5u0h" path="res://assets/fonts/Space_Mono/SpaceMono-Italic.ttf" id="3_g5sx5"]
+
+[node name="NewsTicker" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_pu2jt")
+script = ExtResource("2_3q5nu")
+
+[node name="NewsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 64.0
+offset_right = 736.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("3_g5sx5")
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 3

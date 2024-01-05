@@ -21,6 +21,7 @@ UniqueIdGenerator="*res://unique_id_generator.gd"
 Player="*res://player.gd"
 MessageManager="*res://message_manager.gd"
 EventManager="*res://EventManager.gd"
+NewsManager="*res://NewsManager.gd"
 
 [display]
 

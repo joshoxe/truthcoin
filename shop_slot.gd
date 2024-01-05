@@ -27,6 +27,8 @@ func on_miner_updated(miner: Miner):
 	get_miners_owned()
 
 func on_miner_reset(miner: Miner):
+	amount_owned = 0
+	$OwnedLabel.text = "Owned: %d" % amount_owned
 	hide_miner()
 	
 func on_player_loaded(player: Player):

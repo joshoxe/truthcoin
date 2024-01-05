@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5j8q7o003bqk"]
+[gd_scene load_steps=2 format=3 uid="uid://cx6p54vwm2486"]
 
 [ext_resource type="Script" path="res://hud.gd" id="1_fjvhh"]
 
@@ -26,6 +26,15 @@ grow_horizontal = 2
 grow_vertical = 0
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="NewGameCoinsLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -204.0
+offset_bottom = 23.0
+grow_horizontal = 0
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 anchors_preset = 5
