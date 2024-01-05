@@ -41,6 +41,15 @@ func read_miners_from_json(file_path):
 
 		miner.id = UniqueIdGenerator.get_next_id()
 		shop_miners.append(miner)
+
+func get_miners_owned(miner_id: int):
+	var miners_owned = 0
+	for miner in Player.purchased_miners:
+		if miner.id == miner_id:
+			miners_owned += 1
+			
+	return miners_owned
+	
 		
 func get_miner_by_id(miner_id: int):
 	for miner in shop_miners:

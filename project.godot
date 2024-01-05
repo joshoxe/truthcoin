@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 UniqueIdGenerator="*res://unique_id_generator.gd"
 Player="*res://player.gd"
 MessageManager="*res://message_manager.gd"
+EventManager="*res://EventManager.gd"
 
 [display]
 

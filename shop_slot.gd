@@ -4,6 +4,7 @@ var miner_id: int
 var shop_manager = null
 var player = null
 var slot_visible = false
+var amount_owned = 0
 signal miner_purchased(miner)
 
 func get_miner():
@@ -13,9 +14,18 @@ func _ready():
 	$BuyButton.pressed.connect(on_buy_button_pressed)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	shop_manager.miner_reset.connect(on_miner_reset)
+	shop_manager.miner_updated.connect(on_miner_updated)
 	player = get_tree().root.get_node("Main/Player")
 	Player.player_loaded.connect(on_player_loaded)
-	
+	get_miners_owned()
+
+func get_miners_owned():
+	amount_owned = shop_manager.get_miners_owned(miner_id)
+	$OwnedLabel.text = "Owned: %d" % amount_owned
+
+func on_miner_updated(miner: Miner):
+	get_miners_owned()
+
 func on_miner_reset(miner: Miner):
 	hide_miner()
 	
@@ -47,6 +57,7 @@ func set_miner_id(new_miner_id: int):
 	miner_id = new_miner_id
 	
 func show_miner():
+	slot_visible = true
 	var miner = get_miner()
 	set_miner_image(miner.image_path)
 	set_name_label(miner.miner_name)

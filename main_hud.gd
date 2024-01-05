@@ -7,6 +7,9 @@ var player = null
 @export var message_slot_scene: PackedScene
 var slots = []
 var message_slots = []
+var event_popup = preload("res://random_event_popup.tscn")
+var buff_label = preload("res://buff_label.tscn")
+var event_coin = preload("res://event_coin.tscn")
 
 var SHOP_SLOT_X = 1140
 var SHOP_SLOT_Y = 150
@@ -22,6 +25,10 @@ func _ready():
 	$WipeSaveDialogue/WipeSaveCancel.pressed.connect(on_wipe_save_cancel_pressed)
 	$WipeSaveDialogue/WipeSaveConfirm.pressed.connect(on_wipe_save_confirm_pressed)
 	MessageManager.new_message.connect(on_new_message)
+	EventManager.new_event.connect(on_new_event)
+	EventManager.event_ended.connect(on_event_ended)
+	EventManager.load_event.connect(on_load_event)
+	EventManager.show_event_coin.connect(on_show_event_coin)
 	shop_manager = get_tree().root.get_node("Main/ShopManager")
 	game_manager = get_tree().root.get_node("Main/GameManager")
 	shop_manager.miner_updated.connect(on_miner_updated)
@@ -38,6 +45,56 @@ func _ready():
 	for message in MessageManager.inbox:
 		create_new_message_scene(message)
 		
+func on_show_event_coin():
+	var event_coin_scene = event_coin.instantiate()
+	var x = randi_range(0, 920)
+	var y = randi_range(0, 1000)
+	event_coin_scene.position = Vector2(x, y)
+	add_child(event_coin_scene)
+
+	event_coin_scene.clicked.connect(on_event_coin_clicked.bind(event_coin_scene))
+
+func on_event_coin_clicked(coin_scene):
+	EventManager.trigger_random_event()
+		
+func on_event_ended(event: Event):
+	add_event_popup(event.end_text)
+	remove_buff_text(event)
+		
+func on_new_event(event: Event):
+	add_event_popup(event.description)
+	add_buff_text(event)
+
+func on_load_event(event: Event):
+	add_buff_text(event)
+
+func add_buff_text(event: Event):
+	var buff_label_scene = buff_label.instantiate()
+	if event.buff_effect == "positive":
+		buff_label_scene.set_positive()
+	else:
+		buff_label_scene.set_negative()
+	
+	buff_label_scene.set_text(event.buff_text)
+	$BuffLabelContainer.add_child(buff_label_scene)
+	
+func remove_buff_text(event: Event):
+	var container = $BuffLabelContainer
+	var i = 0
+	while container.get_child_count() > i:
+		i += 1
+		var child = container.get_child(0)
+		if child.text == event.buff_text:
+			container.remove_child(child)
+			child.queue_free()
+			return
+	
+func add_event_popup(text: String):
+	var event_scene = event_popup.instantiate()
+	event_scene.set_popup_y(-235)
+	event_scene.set_event_text(text)
+	add_child(event_scene)
+
 func reset_messages():
 	var container = $InboxScrollContainer/InboxContainer
 	while container.get_child_count() > 0:
@@ -92,8 +149,10 @@ func on_miner_purchased(miner_id: int):
 func on_miner_updated(miner):
 	for slot in slots:
 		if slot.miner_id == miner.id:
-			slot.set_cost_label(miner.base_cost)
-			slot.enable_buy_button()
+			if slot.slot_visible:
+				slot.set_cost_label(miner.base_cost)
+				slot.set_per_second_label(miner.earn_rate)
+				slot.enable_buy_button()
 			return
 	
 func on_inbox_button_clicked():

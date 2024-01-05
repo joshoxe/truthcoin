@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcspcpxg81mc1"]
+
+[ext_resource type="Texture2D" uid="uid://cun40axt085pn" path="res://assets/UI/message_slot.png" id="1_41bwu"]
+[ext_resource type="FontFile" uid="uid://b67554lnuypc0" path="res://assets/fonts/Space_Mono/SpaceMono-Bold.ttf" id="2_fhk5m"]
+[ext_resource type="Script" path="res://random_event_popup.gd" id="2_udxwk"]
+[ext_resource type="FontFile" uid="uid://cdw4tnj32rww4" path="res://assets/fonts/Space_Mono/SpaceMono-Regular.ttf" id="3_63inr"]
+
+[node name="RandomEventPopup" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_41bwu")
+script = ExtResource("2_udxwk")
+
+[node name="AlertLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -380.5
+offset_right = 379.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.87451, 0.176471, 0, 1)
+theme_override_fonts/font = ExtResource("2_fhk5m")
+theme_override_font_sizes/font_size = 28
+text = "Alert!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EventLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.5
+offset_top = -52.5
+offset_right = 379.5
+offset_bottom = 99.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_63inr")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+autowrap_mode = 2
