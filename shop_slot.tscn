@@ -20,8 +20,10 @@ script = ExtResource("2_mo74b")
 [node name="DisabledOverlay" type="ColorRect" parent="."]
 z_index = 1
 layout_mode = 0
-offset_right = 768.0
-offset_bottom = 216.0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 760.0
+offset_bottom = 219.0
 color = Color(0.121569, 0.121569, 0.121569, 0.572549)
 
 [node name="BuyButton" type="TextureButton" parent="."]
