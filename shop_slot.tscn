@@ -110,3 +110,24 @@ expand_mode = 1
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource("10_6bmp1")
+
+[node name="OwnedLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.0
+offset_top = -49.0
+offset_right = -25.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_k76na")
+theme_override_font_sizes/font_size = 11
+text = "Owned: 11"
+horizontal_alignment = 2
+vertical_alignment = 1
