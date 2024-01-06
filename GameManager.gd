@@ -127,10 +127,11 @@ func handle_end_game(miner):
 	var current_coins = Player.current_coins
 
 	on_wipe_save()
-	print(miner.base_cost)
-	print(current_coins)
-	print(current_coins - miner.base_cost)
 	Player.new_game_coins += (current_coins - miner.base_cost)
+
+	if Player.new_game_coins >= 12:
+		Player.new_game_coins = 12
+
 	new_game_coins_updated.emit()
 	save_player()
 

@@ -8,7 +8,7 @@ signal news_ready(news: String)
 func _ready():
 	load_messages_from_json("res://news.json")
 	news_timer = Timer.new()
-	news_timer.set_wait_time(randi_range(10, 30))
+	news_timer.set_wait_time(1)
 	news_timer.set_one_shot(true)
 	news_timer.timeout.connect(on_news_timer_timeout)
 	add_child(news_timer)
