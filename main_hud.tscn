@@ -180,6 +180,7 @@ bbcode_enabled = true
 text = "[center]This will [b][color=red]permanently delete[/color][/b] your save file [b][color=red]forever[/color][/b]"
 
 [node name="MessageDialogue" parent="." instance=ExtResource("13_acjie")]
+z_index = 5
 
 [node name="InboxNotification" type="TextureRect" parent="."]
 offset_left = 1776.0
